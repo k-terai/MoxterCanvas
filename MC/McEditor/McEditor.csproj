@@ -7,10 +7,10 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <Import Project="..\McEdShare\McEdShare.projitems" Label="Shared" />
+
   <ItemGroup>
     <PackageReference Include="MahApps.Metro.IconPacks" Version="4.11.0" />
   </ItemGroup>
-
-  <Import Project="..\MoxterCanvasShare\MoxterCanvasShare.projitems" Label="Shared" />
 
 </Project>

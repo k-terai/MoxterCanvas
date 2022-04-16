@@ -3,12 +3,11 @@
   <PropertyGroup>
     <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
     <HasSharedItems>true</HasSharedItems>
-    <SharedGUID>8679f066-6966-4344-a93c-61e07abc9e27</SharedGUID>
+    <SharedGUID>e1b5588c-f2cf-44fa-a5c3-b862a26ef1f5</SharedGUID>
   </PropertyGroup>
   <PropertyGroup Label="Configuration">
-    <Import_RootNamespace>MoxterCanvasShare</Import_RootNamespace>
+    <Import_RootNamespace>McEdShare</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)Test.cs" />
   </ItemGroup>
 </Project>
