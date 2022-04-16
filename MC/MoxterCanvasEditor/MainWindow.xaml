@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MoxterCanvasEditor"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="MainWindow" Height="450" Width="800" Background="{DynamicResource WindowBackground}" WindowStartupLocation="CenterScreen" MinWidth="800" MinHeight="450" WindowState="Maximized">
+    <Grid Background="{DynamicResource WindowBackground}">
 
     </Grid>
 </Window>
