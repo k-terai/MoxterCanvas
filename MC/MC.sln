@@ -3,11 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32407.343
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoxterCanvasEditor", "MoxterCanvasEditor\MoxterCanvasEditor.csproj", "{D739C5FA-E79A-4BD2-8064-C54767223C1D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MoxterCanvasEditor", "MoxterCanvasEditor\MoxterCanvasEditor.csproj", "{D739C5FA-E79A-4BD2-8064-C54767223C1D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Editor", "Editor", "{0CF9B238-9620-47B3-BCA5-3F2326112E05}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "MoxterCanvasShare", "MoxterCanvasShare\MoxterCanvasShare.shproj", "{8679F066-6966-4344-A93C-61E07ABC9E27}"
+EndProject
 Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		MoxterCanvasShare\MoxterCanvasShare.projitems*{8679f066-6966-4344-a93c-61e07abc9e27}*SharedItemsImports = 13
+		MoxterCanvasShare\MoxterCanvasShare.projitems*{d739c5fa-e79a-4bd2-8064-c54767223c1d}*SharedItemsImports = 5
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -23,6 +29,7 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{D739C5FA-E79A-4BD2-8064-C54767223C1D} = {0CF9B238-9620-47B3-BCA5-3F2326112E05}
+		{8679F066-6966-4344-A93C-61E07ABC9E27} = {0CF9B238-9620-47B3-BCA5-3F2326112E05}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {83B0A11A-75EA-456F-8CFD-122DAAB35B29}
