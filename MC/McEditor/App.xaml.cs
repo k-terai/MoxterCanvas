@@ -1,4 +1,9 @@
-﻿using System;
+﻿//--------------------------------------------------------------------------------------
+// Copyright (c) k-terai.
+// Licensed under the MIT License.
+//--------------------------------------------------------------------------------------
+
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
