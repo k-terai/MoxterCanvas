@@ -9,6 +9,15 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" Background="{DynamicResource CustomWindowBackground}" WindowStartupLocation="CenterScreen" WindowState="Maximized" MinWidth="800" MinHeight="450">
     <Grid>
+        <Menu Height="22" VerticalAlignment="Top" d:LayoutOverrides="Height" Background="White">
+            <MenuItem Header="File(_F)" Height="22" Width="50">
+                <MenuItem Header="New Canvas"/>
+            </MenuItem>
+            <MenuItem Header="Edit(_E)" Height="22" Width="50"/>
+            <MenuItem Header="Debug(_D)" Height="22" Width="70"/>
+            <MenuItem Header="Window(_W)" Height="22" Width="80"/>
+            <MenuItem Header="Help(_H)" Height="22" Width="60"/>
+        </Menu>
 
     </Grid>
 </Window>
