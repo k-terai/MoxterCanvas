@@ -1,4 +1,5 @@
-﻿<!--Copyright (c) k-terai. Licensed under the MIT License.-->
+﻿<!--Copyright (c) 2022 K.T
+ Licensed under the MIT License. See LICENSE in the project root for license information.-->
 
 <Window x:Class="McEditor.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
