@@ -9,15 +9,28 @@
         xmlns:local="clr-namespace:McEditor"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" Background="{DynamicResource CustomWindowBackground}" WindowStartupLocation="CenterScreen" WindowState="Maximized" MinWidth="800" MinHeight="450">
+
+    <Window.DataContext>
+        <local:MainWindowViewModel/>
+    </Window.DataContext>
+
     <Grid>
         <Menu Height="22" VerticalAlignment="Top" d:LayoutOverrides="Height" Background="White">
-            <MenuItem Header="File(_F)" Height="22" Width="50">
+            <MenuItem Header="{Binding Source={x:Static local:ResourceService.Current}, Path=Resources.File, Mode=OneWay}" Height="22" Width="60">
                 <MenuItem Header="New Canvas"/>
             </MenuItem>
-            <MenuItem Header="Edit(_E)" Height="22" Width="50"/>
-            <MenuItem Header="Debug(_D)" Height="22" Width="70"/>
-            <MenuItem Header="Window(_W)" Height="22" Width="80"/>
-            <MenuItem Header="Help(_H)" Height="22" Width="60"/>
+            <MenuItem  Header="{Binding Source={x:Static local:ResourceService.Current}, Path=Resources.Edit, Mode=OneWay}" Height="22" Width="50"/>
+            <MenuItem Header="{Binding Source={x:Static local:ResourceService.Current}, Path=Resources.Debug, Mode=OneWay}"  Height="22" Width="70"/>
+            <MenuItem Header="{Binding Source={x:Static local:ResourceService.Current}, Path=Resources.Window, Mode=OneWay}"  Height="22" Width="80"/>
+            <MenuItem Header="{Binding Source={x:Static local:ResourceService.Current}, Path=Resources.Developer, Mode=OneWay}"  Height="22" Width="70">
+                <MenuItem Header="{Binding Source={x:Static local:ResourceService.Current}, Path=Resources.Language, Mode=OneWay}">
+                    <MenuItem Header="日本語" Command="{Binding ChangeLanguageCommand,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"
+                               CommandParameter="{x:Static local:ResourceService.JAPANACECODE}"/>
+                    <MenuItem Header="English" Command="{Binding ChangeLanguageCommand,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"
+                               CommandParameter="{x:Static local:ResourceService.ENGLISHCODE}"/>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="{Binding Source={x:Static local:ResourceService.Current}, Path=Resources.Help, Mode=OneWay}" Height="22" Width="60"/>
         </Menu>
 
     </Grid>
