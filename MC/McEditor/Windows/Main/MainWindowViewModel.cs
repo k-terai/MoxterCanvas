@@ -2,6 +2,7 @@
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
 
+using McEditor.Service;
 using McEdShare.CoreSystem;
 using McEdShare.WindowSystem;
 using System;
@@ -10,7 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace McEditor
+namespace McEditor.Windows
 {
     public class MainWindowViewModel : WindowViewModel
     {
