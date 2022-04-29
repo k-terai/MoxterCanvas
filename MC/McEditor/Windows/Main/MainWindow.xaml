@@ -33,6 +33,14 @@
             </MenuItem>
             <MenuItem Header="{Binding Source={x:Static service:ResourceService.Current}, Path=Resources.Help, Mode=OneWay}" Height="22" Width="60"/>
         </Menu>
+        <TabControl Style="{DynamicResource CustomTabControlStyle}" Margin="0,22,0,0" Background="{DynamicResource CustomWindowBackground}" BorderBrush="{DynamicResource TabItem.Static.Border}">
+            <TabItem Style="{DynamicResource CustomTabItemStyle}" Header="TabItem" Foreground="{DynamicResource MainForeground}">
+                <Grid Background="{DynamicResource CustomWindowBackground}"/>
+            </TabItem>
+            <TabItem Header="TabItem" Style="{DynamicResource CustomTabItemStyle}" Foreground="{DynamicResource MainForeground}">
+                <Grid Background="{DynamicResource CustomWindowBackground}"/>
+            </TabItem>
+        </TabControl>
 
     </Grid>
 </Window>
