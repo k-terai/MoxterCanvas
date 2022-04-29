@@ -9,6 +9,8 @@
     <Import_RootNamespace>McEdShare</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)ControlSystem\ControlViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ControlSystem\IControl.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CoreSystem\DelegateCommand.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CoreSystem\NotifyPropertyChangedBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CoreSystem\ViewModelBase.cs" />
