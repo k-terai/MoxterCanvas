@@ -2,11 +2,14 @@
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
 
+using McEditor.Canvas;
 using McEditor.Service;
 using McEdShare.CoreSystem;
+using McEdShare.TabSystem;
 using McEdShare.WindowSystem;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,11 +18,30 @@ namespace McEditor.Windows
 {
     public class MainWindowViewModel : WindowViewModel
     {
+        private ObservableCollection<TabItemViewModel> _tabItems;
+
         public DelegateCommand ChangeLanguageCommand { get; set; }
+        public ObservableCollection<TabItemViewModel> TabItems { get => _tabItems; set { _tabItems = value; NotifyPropertyChanged(); } }
 
         public MainWindowViewModel() : base()
         {
+            TabItems = new ObservableCollection<TabItemViewModel>();
             InitCommand();
+
+            AddTab();
+            AddTab();
+            AddTab();
+        }
+
+        public void AddTab()
+        {
+            var tab = new TabItemViewModel()
+            {
+                Header = "NewCanvas*",
+                ContentControl = new CanvasControl()
+            };
+
+            TabItems.Add(tab);
         }
 
         private void InitCommand()

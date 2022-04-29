@@ -33,13 +33,26 @@
             </MenuItem>
             <MenuItem Header="{Binding Source={x:Static service:ResourceService.Current}, Path=Resources.Help, Mode=OneWay}" Height="22" Width="60"/>
         </Menu>
-        <TabControl Style="{DynamicResource CustomTabControlStyle}" Margin="0,22,0,0" Background="{DynamicResource CustomWindowBackground}" BorderBrush="{DynamicResource TabItem.Static.Border}">
-            <TabItem Style="{DynamicResource CustomTabItemStyle}" Header="TabItem" Foreground="{DynamicResource MainForeground}">
-                <Grid Background="{DynamicResource CustomWindowBackground}"/>
-            </TabItem>
-            <TabItem Header="TabItem" Style="{DynamicResource CustomTabItemStyle}" Foreground="{DynamicResource MainForeground}">
-                <Grid Background="{DynamicResource CustomWindowBackground}"/>
-            </TabItem>
+        <TabControl Style="{DynamicResource CustomTabControlStyle}" Margin="0,22,0,0" Background="{DynamicResource CustomWindowBackground}" 
+                    BorderBrush="{DynamicResource TabItem.Static.Border}"
+                    ItemsSource="{Binding TabItems,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}">
+            <TabControl.ItemContainerStyle>
+                <Style TargetType="TabItem" BasedOn="{StaticResource CustomTabItemStyle}">
+
+                </Style>
+            </TabControl.ItemContainerStyle>
+
+            <TabControl.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Header,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" Foreground="{DynamicResource MainForeground}" />
+                </DataTemplate>
+            </TabControl.ItemTemplate>
+
+            <TabControl.ContentTemplate>
+                <DataTemplate>
+                    <ContentControl Content="{Binding ContentControl.Control,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"/>
+                </DataTemplate>
+            </TabControl.ContentTemplate>
         </TabControl>
 
     </Grid>

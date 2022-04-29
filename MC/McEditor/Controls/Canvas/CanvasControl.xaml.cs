@@ -18,11 +18,14 @@ namespace McEditor.Canvas
     /// <summary>
     /// CanvasControl.xaml の相互作用ロジック
     /// </summary>
-    public partial class CanvasControl : UserControl
+    public partial class CanvasControl : UserControl, ICanvasControl
     {
+        public UserControl Control => this;
+
         public CanvasControl()
         {
             InitializeComponent();
         }
+
     }
 }
