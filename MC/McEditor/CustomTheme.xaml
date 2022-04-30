@@ -6,6 +6,7 @@
     xmlns:theme="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2">
 
     <SolidColorBrush x:Key="CustomWindowBackground" Color="#FF191919"/>
+    <SolidColorBrush x:Key="CustomCanvasBackground" Color="#FF282828"/>
     <SolidColorBrush x:Key="MainForeground" Color="#FFC8C8C8"/>
     <SolidColorBrush x:Key="ToolBarButtonHover" Color="#210080FF"/>
     <SolidColorBrush x:Key="ToolBarMenuBorder" Color="#FFB6BDC5"/>
@@ -16,6 +17,7 @@
     <SolidColorBrush x:Key="ToolBarToggleButtonHorizontalBackground" Color="#FFEEF5FD"/>
     <SolidColorBrush x:Key="ToolBarToggleButtonVerticalBackground" Color="#FFEEF5FD"/>
 
+ 
     <Style x:Key="FocusVisual">
         <Setter Property="Control.Template">
             <Setter.Value>

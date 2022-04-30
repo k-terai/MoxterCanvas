@@ -3,6 +3,7 @@
 
 
 using McEditor.Canvas;
+using McEditor.Dispatcher;
 using McEditor.Service;
 using McEdShare.CoreSystem;
 using McEdShare.TabSystem;
@@ -19,6 +20,7 @@ namespace McEditor.Windows
     public class MainWindowViewModel : WindowViewModel
     {
         private ObservableCollection<TabItemViewModel> _tabItems;
+        private int _selectTabIndex;
 
         public DelegateCommand ChangeLanguageCommand { get; set; }
 
@@ -28,9 +30,12 @@ namespace McEditor.Windows
 
         public ObservableCollection<TabItemViewModel> TabItems { get => _tabItems; set { _tabItems = value; NotifyPropertyChanged(); } }
 
+        public int SelectTabIndex { get => _selectTabIndex; set { _selectTabIndex = value; NotifyPropertyChanged(); } }
+
         public MainWindowViewModel() : base()
         {
             TabItems = new ObservableCollection<TabItemViewModel>();
+            SelectTabIndex = -1;
             InitCommand();
         }
 
@@ -59,11 +64,21 @@ namespace McEditor.Windows
                 };
 
                 TabItems.Add(tab);
+                SelectTabIndex = TabItems.Count - 1;
+
+                ////NOTE : It is not reflected in the UI(Tab focus), execute it with Dispatcher.
+                //EditorDispatcher.Execute(() =>
+                //{
+                   
+                //},
+                // System.Windows.Threading.DispatcherPriority.Render
+                //);
+
             });
 
             OpenCanvasCommand = new DelegateCommand((object p) =>
             {
-               
+
             });
         }
     }
