@@ -21,27 +21,17 @@ namespace McEditor.Windows
         private ObservableCollection<TabItemViewModel> _tabItems;
 
         public DelegateCommand ChangeLanguageCommand { get; set; }
+
+        public DelegateCommand CreateNewCanvasCommand { get; set; }
+
+        public DelegateCommand OpenCanvasCommand { get; set; }
+
         public ObservableCollection<TabItemViewModel> TabItems { get => _tabItems; set { _tabItems = value; NotifyPropertyChanged(); } }
 
         public MainWindowViewModel() : base()
         {
             TabItems = new ObservableCollection<TabItemViewModel>();
             InitCommand();
-
-            AddTab();
-            AddTab();
-            AddTab();
-        }
-
-        public void AddTab()
-        {
-            var tab = new TabItemViewModel()
-            {
-                Header = "NewCanvas*",
-                ContentControl = new CanvasControl()
-            };
-
-            TabItems.Add(tab);
         }
 
         private void InitCommand()
@@ -58,6 +48,22 @@ namespace McEditor.Windows
                         ResourceService.Current.ChangeCulture(ResourceService.JAPANACECODE);
                         break;
                 }
+            });
+
+            CreateNewCanvasCommand = new DelegateCommand((object p) =>
+            {
+                var tab = new TabItemViewModel()
+                {
+                    Header = "NewCanvas*",
+                    ContentControl = new CanvasControl()
+                };
+
+                TabItems.Add(tab);
+            });
+
+            OpenCanvasCommand = new DelegateCommand((object p) =>
+            {
+               
             });
         }
     }

@@ -18,7 +18,8 @@
     <Grid>
         <Menu Height="22" VerticalAlignment="Top" d:LayoutOverrides="Height" Background="White">
             <MenuItem Header="{Binding Source={x:Static service:ResourceService.Current}, Path=Resources.File, Mode=OneWay}" Height="22" Width="60">
-                <MenuItem Header="New Canvas"/>
+                <MenuItem Header="{Binding Source={x:Static service:ResourceService.Current}, Path=Resources.NewCanvas, Mode=OneWay}" Command="{Binding CreateNewCanvasCommand,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" InputGestureText="Ctrl+N"/>
+                <MenuItem Header="{Binding Source={x:Static service:ResourceService.Current}, Path=Resources.OpenCanvas, Mode=OneWay}" InputGestureText="Ctrl+O" Command="{Binding OpenCanvasCommand,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"/>
             </MenuItem>
             <MenuItem  Header="{Binding Source={x:Static service:ResourceService.Current}, Path=Resources.Edit, Mode=OneWay}" Height="22" Width="50"/>
             <MenuItem Header="{Binding Source={x:Static service:ResourceService.Current}, Path=Resources.Debug, Mode=OneWay}"  Height="22" Width="70"/>

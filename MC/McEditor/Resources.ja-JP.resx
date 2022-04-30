@@ -135,6 +135,12 @@
   <data name="Language" xml:space="preserve">
     <value>言語</value>
   </data>
+  <data name="NewCanvas" xml:space="preserve">
+    <value>新規キャンバス...</value>
+  </data>
+  <data name="OpenCanvas" xml:space="preserve">
+    <value>キャンパスを開く...</value>
+  </data>
   <data name="Window" xml:space="preserve">
     <value>ウィンドウ(_W)</value>
   </data>

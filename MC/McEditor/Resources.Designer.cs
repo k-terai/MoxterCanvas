@@ -115,6 +115,24 @@ namespace McEditor {
         }
         
         /// <summary>
+        ///   NewCanvas... に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string NewCanvas {
+            get {
+                return ResourceManager.GetString("NewCanvas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   OpenCanvas... に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string OpenCanvas {
+            get {
+                return ResourceManager.GetString("OpenCanvas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Window(_W) に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string Window {

@@ -135,6 +135,12 @@
   <data name="Language" xml:space="preserve">
     <value>Language</value>
   </data>
+  <data name="NewCanvas" xml:space="preserve">
+    <value>NewCanvas...</value>
+  </data>
+  <data name="OpenCanvas" xml:space="preserve">
+    <value>OpenCanvas...</value>
+  </data>
   <data name="Window" xml:space="preserve">
     <value>Window(_W)</value>
   </data>
