@@ -141,6 +141,9 @@
   <data name="OpenCanvas" xml:space="preserve">
     <value>OpenCanvas...</value>
   </data>
+  <data name="Property" xml:space="preserve">
+    <value>Property</value>
+  </data>
   <data name="Window" xml:space="preserve">
     <value>Window(_W)</value>
   </data>

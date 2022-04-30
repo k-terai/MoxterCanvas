@@ -141,6 +141,9 @@
   <data name="OpenCanvas" xml:space="preserve">
     <value>キャンパスを開く...</value>
   </data>
+  <data name="Property" xml:space="preserve">
+    <value>プロパティ</value>
+  </data>
   <data name="Window" xml:space="preserve">
     <value>ウィンドウ(_W)</value>
   </data>

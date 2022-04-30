@@ -133,6 +133,15 @@ namespace McEditor {
         }
         
         /// <summary>
+        ///   Property に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string Property {
+            get {
+                return ResourceManager.GetString("Property", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Window(_W) に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string Window {
