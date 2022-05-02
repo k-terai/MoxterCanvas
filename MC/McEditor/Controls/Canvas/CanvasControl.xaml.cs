@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace McEditor.Canvas
+namespace McEditor.Controls
 {
     /// <summary>
     /// CanvasControl.xaml の相互作用ロジック

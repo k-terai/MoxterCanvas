@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace McEditor
+namespace McEditor.Controls
 {
     public interface ICanvasControl : IControl
     {

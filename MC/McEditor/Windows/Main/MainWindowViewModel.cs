@@ -2,7 +2,7 @@
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
 
-using McEditor.Canvas;
+using McEditor.Controls;
 using McEditor.Dispatcher;
 using McEditor.Service;
 using McEdShare.CoreSystem;
