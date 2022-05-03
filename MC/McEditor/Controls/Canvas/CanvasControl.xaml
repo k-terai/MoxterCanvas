@@ -29,15 +29,15 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <ToolBar Style="{DynamicResource CustomToolBarStyle}" Height="35" d:LayoutOverrides="HorizontalAlignment, Height, LeftMargin, RightMargin, TopMargin, BottomMargin" VerticalAlignment="Top" Background="{DynamicResource CustomWindowBackground}" Grid.ColumnSpan="2">
-            <Button Foreground="White">
-                <iconPacks:PackIconModern Kind="Save" />
+            <Button Foreground="White" Width="30" Height="30">
+                <iconPacks:PackIconModern Kind="Save" Width="20" Height="20" />
             </Button>
-            <Button Foreground="White" Command="{Binding TestCommand,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}">
-                <iconPacks:PackIconFileIcons Kind="TestGo" />
+            <Button Foreground="White" Command="{Binding TestCommand,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" Width="30" Height="30" Margin="3,0,0,0">
+                <iconPacks:PackIconFileIcons Kind="TestGo" Width="20" Height="20" />
             </Button>
         </ToolBar>
         <GridSplitter Margin="0,35,0,0" Width="5" Background="{DynamicResource CustomWindowBackground}"/>
-        <ItemsControl ItemsSource="{Binding Elements,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Margin="0,35,0,0">
+        <ItemsControl ItemsSource="{Binding Elements,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Margin="0,35,5,0">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <Canvas Background="{DynamicResource CustomCanvasBackground}" />
