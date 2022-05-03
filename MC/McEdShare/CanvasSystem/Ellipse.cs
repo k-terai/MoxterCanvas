@@ -12,9 +12,8 @@ using System.Windows.Media;
 
 namespace McEdShare.CanvasSystem
 {
-    public sealed class Rectangle : CanvasElement
+    public sealed class Ellipse : CanvasElement
     {
-
 #if WPF
         private Brush _fill;
         private Brush _stroke;

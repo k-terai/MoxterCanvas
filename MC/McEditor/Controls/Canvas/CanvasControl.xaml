@@ -19,7 +19,22 @@
             <Rectangle
         Width="{Binding Width}"
         Height="{Binding Height}"
-        Fill="{Binding Fill}" />
+        Fill="{Binding Fill}"
+        Stroke="{Binding Stroke}"
+        StrokeThickness="{Binding StrokeThickness}"/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type canvas:Ellipse}">
+            <Ellipse
+        Width="{Binding Width}"
+        Height="{Binding Height}"
+        Fill="{Binding Fill}"
+        Stroke="{Binding Stroke}"
+        StrokeThickness="{Binding StrokeThickness}"/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type canvas:Image}">
+            <iconPacks:PackIconRadixIcons Kind="Rocket" Foreground="#FFFFF500" Width="{Binding Width}" Height="{Binding Height}" />
         </DataTemplate>
     </UserControl.Resources>
 

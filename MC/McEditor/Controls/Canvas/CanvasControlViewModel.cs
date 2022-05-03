@@ -45,11 +45,61 @@ namespace McEditor.Controls
                         Y = r.Next(0, 1500),
                         Fill = new SolidColorBrush(new Color()
                         {
-                            A = 255,
+                            A = 0,
                             R = (byte)r.Next(0, 255),
                             G = (byte)r.Next(0, 255),
                             B = (byte)r.Next(0, 255),
                         }),
+                        Stroke = new SolidColorBrush(new Color()
+                        {
+                            A = 255 / 2,
+                            R = (byte)r.Next(0, 255),
+                            G = (byte)r.Next(0, 255),
+                            B = (byte)r.Next(0, 255),
+                        }),
+                        StrokeThickness = 2
+                    };
+
+                    Elements.Add(rec);
+                }
+
+                for (int i = 0; i < 1000; i++)
+                {
+                    var rec = new Ellipse()
+                    {
+                        Width = 50,
+                        Height = 50,
+                        X = r.Next(0, 1500),
+                        Y = r.Next(0, 1500),
+                        Fill = new SolidColorBrush(new Color()
+                        {
+                            A = 0,
+                            R = (byte)r.Next(0, 255),
+                            G = (byte)r.Next(0, 255),
+                            B = (byte)r.Next(0, 255),
+                        }),
+                        Stroke = new SolidColorBrush(new Color()
+                        {
+                            A = 255 / 2,
+                            R = (byte)r.Next(0, 255),
+                            G = (byte)r.Next(0, 255),
+                            B = (byte)r.Next(0, 255),
+                        }),
+                        StrokeThickness = 2
+                    };
+
+                    Elements.Add(rec);
+                }
+
+                for (int i = 0; i < 10; i++)
+                {
+                    var rec = new Image()
+                    {
+                        Width = 50,
+                        Height = 50,
+                        X = r.Next(0, 1500),
+                        Y = r.Next(0, 1500),
+                        Path = "TestGo"
                     };
 
                     Elements.Add(rec);
