@@ -33,8 +33,17 @@
         StrokeThickness="{Binding StrokeThickness}"/>
         </DataTemplate>
 
-        <DataTemplate DataType="{x:Type canvas:Image}">
-            <iconPacks:PackIconRadixIcons Kind="Rocket" Foreground="#FFFFF500" Width="{Binding Width}" Height="{Binding Height}" />
+        <DataTemplate DataType="{x:Type canvas:Path}">
+            <Path
+        Width="{Binding Width}"
+        Height="{Binding Height}"
+        Data="{Binding Data}"
+        Stroke="{Binding Stroke}"
+        StrokeThickness="{Binding StrokeThickness}"/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type canvas:RadixIconImage}">
+            <iconPacks:PackIconRadixIcons Kind="{Binding Path,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" Foreground="#FFFFF500" Width="{Binding Width}" Height="{Binding Height}" />
         </DataTemplate>
     </UserControl.Resources>
 

@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media;
 using McEdShare.CoreSystem;
+using System.Numerics;
 
 namespace McEditor.Controls
 {
@@ -34,22 +35,90 @@ namespace McEditor.Controls
             {
                 Elements.Clear();
                 var r = new Random();
+                var vectors = new List<Vector2>();
 
-                for (int i = 0; i < 1000; i++)
+                bool isRectangle = true;
+                int count = 500;
+
+                for (int i = 0; i < count; i++)
                 {
-                    var rec = new Rectangle()
+                    var x = r.Next(0, 1500);
+                    var y = r.Next(0, 1500);
+                    vectors.Add(new Vector2(x + 25, y + 25));
+
+                    if (isRectangle)
                     {
-                        Width = 50,
-                        Height = 50,
-                        X = r.Next(0, 1500),
-                        Y = r.Next(0, 1500),
-                        Fill = new SolidColorBrush(new Color()
+                        var rec = new Rectangle()
                         {
-                            A = 0,
-                            R = (byte)r.Next(0, 255),
-                            G = (byte)r.Next(0, 255),
-                            B = (byte)r.Next(0, 255),
-                        }),
+                            Width = 50,
+                            Height = 50,
+                            X = x,
+                            Y = y,
+                            Fill = new SolidColorBrush(new Color()
+                            {
+                                A = 0,
+                                R = (byte)r.Next(0, 255),
+                                G = (byte)r.Next(0, 255),
+                                B = (byte)r.Next(0, 255),
+                            }),
+                            Stroke = new SolidColorBrush(new Color()
+                            {
+                                A = 255 / 2,
+                                R = (byte)r.Next(0, 255),
+                                G = (byte)r.Next(0, 255),
+                                B = (byte)r.Next(0, 255),
+                            }),
+                            StrokeThickness = 2
+                        };
+                        Elements.Add(rec);
+                    }
+                    else
+                    {
+                        var ellipse = new Ellipse()
+                        {
+                            Width = 50,
+                            Height = 50,
+                            X = x,
+                            Y = y,
+                            Fill = new SolidColorBrush(new Color()
+                            {
+                                A = 0,
+                                R = (byte)r.Next(0, 255),
+                                G = (byte)r.Next(0, 255),
+                                B = (byte)r.Next(0, 255),
+                            }),
+                            Stroke = new SolidColorBrush(new Color()
+                            {
+                                A = 255 / 2,
+                                R = (byte)r.Next(0, 255),
+                                G = (byte)r.Next(0, 255),
+                                B = (byte)r.Next(0, 255),
+                            }),
+                            StrokeThickness = 2
+                        };
+
+                        Elements.Add(ellipse);
+                    }
+
+                    isRectangle = !isRectangle;
+                }
+
+                for (int i = 0; i < count; i += 2)
+                {
+                    var cx = vectors[i].X + 100;
+                    var cy = vectors[i].Y + 100;
+                    var cx1 = vectors[i + 1].X - 100;
+                    var cy1 = vectors[i + 1].Y - 100;
+
+
+                    var data = string.Format("M {0},{1} C {2},{3} {4},{5} {6},{7}", vectors[i].X, vectors[i].Y, cx, cy, cx1, cy1, vectors[i + 1].X, vectors[i + 1].Y);
+                    var path = new Path()
+                    {
+                        Width = 10000,
+                        Height = 10000,
+                        X = r.Next(0, 0),
+                        Y = r.Next(0, 0),
+                        Data = data,
                         Stroke = new SolidColorBrush(new Color()
                         {
                             A = 255 / 2,
@@ -60,49 +129,7 @@ namespace McEditor.Controls
                         StrokeThickness = 2
                     };
 
-                    Elements.Add(rec);
-                }
-
-                for (int i = 0; i < 1000; i++)
-                {
-                    var rec = new Ellipse()
-                    {
-                        Width = 50,
-                        Height = 50,
-                        X = r.Next(0, 1500),
-                        Y = r.Next(0, 1500),
-                        Fill = new SolidColorBrush(new Color()
-                        {
-                            A = 0,
-                            R = (byte)r.Next(0, 255),
-                            G = (byte)r.Next(0, 255),
-                            B = (byte)r.Next(0, 255),
-                        }),
-                        Stroke = new SolidColorBrush(new Color()
-                        {
-                            A = 255 / 2,
-                            R = (byte)r.Next(0, 255),
-                            G = (byte)r.Next(0, 255),
-                            B = (byte)r.Next(0, 255),
-                        }),
-                        StrokeThickness = 2
-                    };
-
-                    Elements.Add(rec);
-                }
-
-                for (int i = 0; i < 10; i++)
-                {
-                    var rec = new Image()
-                    {
-                        Width = 50,
-                        Height = 50,
-                        X = r.Next(0, 1500),
-                        Y = r.Next(0, 1500),
-                        Path = "TestGo"
-                    };
-
-                    Elements.Add(rec);
+                    Elements.Add(path);
                 }
             });
         }

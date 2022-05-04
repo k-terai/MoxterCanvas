@@ -5,16 +5,27 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
+
+#if WPF
+using System.Windows.Media;
+#endif
+
+
 namespace McEdShare.CanvasSystem
 {
-    public abstract class Image : CanvasElement
+    public sealed class Path : CanvasElement
     {
 #if WPF
-        private string _path;
+        private Brush _stroke;
+        private string _data;
         private double _strokeThickness;
 
-        public string Path { get { return _path; } set { _path = value; NotifyPropertyChanged(); } }
+        public Brush Stroke { get => _stroke; set { _stroke = value; NotifyPropertyChanged(); } }
+        public string Data { get => _data; set { _data = value; NotifyPropertyChanged(); } }
+
         public double StrokeThickness { get => _strokeThickness; set { _strokeThickness = value; NotifyPropertyChanged(); } }
+
 #endif
+
     }
 }

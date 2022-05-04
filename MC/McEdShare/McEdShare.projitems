@@ -11,6 +11,8 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)CanvasSystem\Ellipse.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CanvasSystem\Image.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CanvasSystem\Path.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CanvasSystem\RadixIconImage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CanvasSystem\Rectangle.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ControlSystem\ControlViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ControlSystem\IControl.cs" />
