@@ -9,6 +9,12 @@
     <Import_RootNamespace>McEdShare</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)AssetSystem\Asset.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AssetSystem\AssetDatabase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AssetSystem\Canvas.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AssetSystem\Contexts\AssetContext.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AssetSystem\Data\AssetData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AssetSystem\Data\Canvas\CanvasData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CanvasSystem\Ellipse.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CanvasSystem\Image.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CanvasSystem\Path.cs" />

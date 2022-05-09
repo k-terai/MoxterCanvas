@@ -5,6 +5,7 @@
 using McEditor.Controls;
 using McEditor.Dispatcher;
 using McEditor.Service;
+using McEdShare.AssetSystem;
 using McEdShare.CoreSystem;
 using McEdShare.TabSystem;
 using McEdShare.WindowSystem;
@@ -27,6 +28,12 @@ namespace McEditor.Windows
         public DelegateCommand CreateNewCanvasCommand { get; set; }
 
         public DelegateCommand OpenCanvasCommand { get; set; }
+
+        public DelegateCommand SaveCommand { get; set; }
+
+        public DelegateCommand SaveAsCommand { get; set; }
+
+        public DelegateCommand SaveAllCommand { get; set; }
 
         public ObservableCollection<TabItemViewModel> TabItems { get => _tabItems; set { _tabItems = value; NotifyPropertyChanged(); } }
 
@@ -57,19 +64,25 @@ namespace McEditor.Windows
 
             CreateNewCanvasCommand = new DelegateCommand((object p) =>
             {
+
+                var control = EditorManager.GetCanvasControl();
+
                 var tab = new TabItemViewModel()
                 {
                     Header = "NewCanvas*",
-                    ContentControl = new CanvasControl()
+                    ContentControl = control
                 };
 
                 TabItems.Add(tab);
                 SelectTabIndex = TabItems.Count - 1;
 
+                var context = new AssetContext("NewCanvas");
+                control.ViewModel.TargetCanvas = AssetDatabase.CreateAsset<Canvas>(context);
+
                 ////NOTE : It is not reflected in the UI(Tab focus), execute it with Dispatcher.
                 //EditorDispatcher.Execute(() =>
                 //{
-                   
+
                 //},
                 // System.Windows.Threading.DispatcherPriority.Render
                 //);
@@ -80,6 +93,42 @@ namespace McEditor.Windows
             {
 
             });
+
+            SaveCommand = new DelegateCommand(
+                (object p) =>
+                {
+
+                }
+                ,
+                (object p) =>
+                {
+                    return false;
+                }
+            );
+
+            SaveAsCommand = new DelegateCommand(
+                (object p) =>
+                {
+
+                }
+                ,
+                (object p) =>
+                {
+                    return false;
+                }
+            );
+
+            SaveAllCommand = new DelegateCommand(
+             (object p) =>
+             {
+
+             }
+             ,
+             (object p) =>
+             {
+                 return false;
+             }
+         );
         }
     }
 }

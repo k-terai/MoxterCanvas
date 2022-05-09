@@ -144,6 +144,15 @@
   <data name="Property" xml:space="preserve">
     <value>Property</value>
   </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="SaveAll" xml:space="preserve">
+    <value>Save All</value>
+  </data>
+  <data name="SaveAs" xml:space="preserve">
+    <value>Save As...</value>
+  </data>
   <data name="Window" xml:space="preserve">
     <value>Window(_W)</value>
   </data>

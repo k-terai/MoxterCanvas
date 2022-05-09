@@ -1,4 +1,8 @@
-﻿using System;
+﻿// Copyright (c) 2022 K.T
+// Licensed under the MIT License. See LICENSE in the project root for license information.
+
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,6 +25,8 @@ namespace McEditor.Controls
     public partial class CanvasControl : UserControl, ICanvasControl
     {
         public UserControl Control => this;
+
+        public CanvasControlViewModel ViewModel => DataContext as CanvasControlViewModel;
 
         public CanvasControl()
         {

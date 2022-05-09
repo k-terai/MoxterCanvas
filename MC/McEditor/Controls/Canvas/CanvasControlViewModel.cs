@@ -12,16 +12,19 @@ using System.Threading.Tasks;
 using System.Windows.Media;
 using McEdShare.CoreSystem;
 using System.Numerics;
+using McEdShare.AssetSystem;
 
 namespace McEditor.Controls
 {
     public class CanvasControlViewModel : ControlViewModel
     {
         private ObservableCollection<CanvasElement> _elements;
+        private Canvas _targetCanvas;
 
         public ObservableCollection<CanvasElement> Elements { get => _elements; set { _elements = value; NotifyPropertyChanged(); } }
 
         public DelegateCommand TestCommand { get; set; }
+        public Canvas TargetCanvas { get => _targetCanvas; set { _targetCanvas = value; NotifyPropertyChanged(); } }
 
         public CanvasControlViewModel() : base()
         {

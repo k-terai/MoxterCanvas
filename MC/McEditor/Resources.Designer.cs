@@ -142,6 +142,33 @@ namespace McEditor {
         }
         
         /// <summary>
+        ///   Save に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string Save {
+            get {
+                return ResourceManager.GetString("Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Save All に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string SaveAll {
+            get {
+                return ResourceManager.GetString("SaveAll", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Save As... に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string SaveAs {
+            get {
+                return ResourceManager.GetString("SaveAs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Window(_W) に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string Window {

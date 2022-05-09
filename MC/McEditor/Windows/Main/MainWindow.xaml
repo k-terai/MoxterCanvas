@@ -8,6 +8,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:McEditor.Windows"
         xmlns:service="clr-namespace:McEditor.Service"
+        xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" Background="{DynamicResource CustomWindowBackground}" WindowStartupLocation="CenterScreen" WindowState="Maximized" MinWidth="800" MinHeight="450">
 
@@ -20,6 +21,22 @@
             <MenuItem Header="{Binding Source={x:Static service:ResourceService.Current}, Path=Resources.File, Mode=OneWay}" Height="22" Width="60">
                 <MenuItem Header="{Binding Source={x:Static service:ResourceService.Current}, Path=Resources.NewCanvas, Mode=OneWay}" Command="{Binding CreateNewCanvasCommand,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" InputGestureText="Ctrl+N"/>
                 <MenuItem Header="{Binding Source={x:Static service:ResourceService.Current}, Path=Resources.OpenCanvas, Mode=OneWay}" InputGestureText="Ctrl+O" Command="{Binding OpenCanvasCommand,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"/>
+                <Separator/>
+                <MenuItem Header="{Binding Resources.Save, Mode=OneWay, Source={x:Static service:ResourceService.Current}}" InputGestureText="Ctrl+S" Command="{Binding SaveCommand, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}">
+                    <MenuItem.Icon>
+                        <iconPacks:PackIconFeatherIcons Kind="Save" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="{Binding Resources.SaveAs, Mode=OneWay, Source={x:Static service:ResourceService.Current}}" Command="{Binding SaveAsCommand, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}">
+                    <MenuItem.Icon>
+                        <iconPacks:PackIconMaterial Kind="ContentSaveEditOutline" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="{Binding Resources.SaveAll, Mode=OneWay, Source={x:Static service:ResourceService.Current}}" InputGestureText="Ctrl+Shift+S"  Command="{Binding SaveAllCommand, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}">
+                    <MenuItem.Icon>
+                        <iconPacks:PackIconMaterialLight Kind="ContentSaveAll" />
+                    </MenuItem.Icon>
+                </MenuItem>
             </MenuItem>
             <MenuItem  Header="{Binding Source={x:Static service:ResourceService.Current}, Path=Resources.Edit, Mode=OneWay}" Height="22" Width="50"/>
             <MenuItem Header="{Binding Source={x:Static service:ResourceService.Current}, Path=Resources.Debug, Mode=OneWay}"  Height="22" Width="70"/>

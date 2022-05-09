@@ -144,6 +144,15 @@
   <data name="Property" xml:space="preserve">
     <value>プロパティ</value>
   </data>
+  <data name="Save" xml:space="preserve">
+    <value>保存</value>
+  </data>
+  <data name="SaveAll" xml:space="preserve">
+    <value>全て保存</value>
+  </data>
+  <data name="SaveAs" xml:space="preserve">
+    <value>別名で保存</value>
+  </data>
   <data name="Window" xml:space="preserve">
     <value>ウィンドウ(_W)</value>
   </data>
