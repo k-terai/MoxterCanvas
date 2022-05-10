@@ -6,6 +6,7 @@ using McEditor.Controls;
 using McEditor.Dispatcher;
 using McEditor.Service;
 using McEdShare.AssetSystem;
+using McEdShare.ControlSystem;
 using McEdShare.CoreSystem;
 using McEdShare.TabSystem;
 using McEdShare.WindowSystem;
@@ -102,6 +103,16 @@ namespace McEditor.Windows
                 ,
                 (object p) =>
                 {
+                    if(SelectTabIndex < 0)
+                    {
+                        return false;
+                    }
+
+                    if(TabItems[SelectTabIndex].ContentControl is IEditAssetControl control && control.Target != null && control.Target.IsDirty)
+                    {
+                        return true;
+                    }
+
                     return false;
                 }
             );

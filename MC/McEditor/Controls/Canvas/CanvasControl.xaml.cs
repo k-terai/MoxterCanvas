@@ -1,7 +1,7 @@
 ﻿// Copyright (c) 2022 K.T
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
-
+using McEdShare.AssetSystem;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,6 +27,8 @@ namespace McEditor.Controls
         public UserControl Control => this;
 
         public CanvasControlViewModel ViewModel => DataContext as CanvasControlViewModel;
+
+        public Asset Target => ViewModel.TargetCanvas;
 
         public CanvasControl()
         {

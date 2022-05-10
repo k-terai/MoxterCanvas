@@ -14,6 +14,7 @@ namespace McEdShare.AssetSystem
     {
         private string _name;
         private string _fullPath;
+        private bool _isDirty;
 
         protected abstract AssetData Data { get; }
 
@@ -23,6 +24,7 @@ namespace McEdShare.AssetSystem
 
         public Guid Id { get => Data.Id; }
 
+        public bool IsDirty { get => _isDirty; set { _isDirty = value; NotifyPropertyChanged(); }}
 
         public abstract bool Initialize(AssetContext context);
 

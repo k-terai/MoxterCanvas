@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace McEditor.Controls
 {
-    public interface ICanvasControl : IControl
+    public interface ICanvasControl : IEditAssetControl
     {
         CanvasControlViewModel ViewModel { get; }
     }
