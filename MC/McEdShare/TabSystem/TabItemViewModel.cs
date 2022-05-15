@@ -16,5 +16,7 @@ namespace McEdShare.TabSystem
 
         public string Header { get => _header; set { _header = value; NotifyPropertyChanged(); } }
         public IControl ContentControl { get => _contentControl; set { _contentControl = value; NotifyPropertyChanged(); } }
+
+        public IEditAssetControl AssetControl { get => ContentControl as IEditAssetControl; }
     }
 }

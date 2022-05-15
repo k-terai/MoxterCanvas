@@ -17,11 +17,13 @@ namespace McEdShare.AssetSystem
         public override bool Initialize(AssetContext context)
         {
             Name = context.Name;
-            FullPath = context.FullPath;
+            Directory = context.Directory;
+            Extension = context.Extension;
 
             if (context.IsDataExists)
             {
                 _canvasData = Serializer.Deserialize<CanvasData>(FullPath);
+                IsDirty = false;
             }
             else
             {
@@ -31,6 +33,7 @@ namespace McEdShare.AssetSystem
                     Version = 1,
                     ConvertType = "None"
                 };
+                IsDirty = true;
             }
 
             return _canvasData != null;
@@ -38,7 +41,10 @@ namespace McEdShare.AssetSystem
 
         public override bool Save()
         {
-            return Serializer.Serialize(_canvasData, FullPath);
+            var isSuccess = Serializer.Serialize(_canvasData, FullPath);
+            IsDirty = !isSuccess;
+
+            return isSuccess;
         }
     }
 }

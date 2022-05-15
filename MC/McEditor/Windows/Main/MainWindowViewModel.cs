@@ -13,6 +13,8 @@ using McEdShare.WindowSystem;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -66,7 +68,7 @@ namespace McEditor.Windows
             CreateNewCanvasCommand = new DelegateCommand((object p) =>
             {
 
-                var control = EditorManager.GetCanvasControl();
+                var control = EditorManager.CreateCanvasControl();
 
                 var tab = new TabItemViewModel()
                 {
@@ -98,7 +100,27 @@ namespace McEditor.Windows
             SaveCommand = new DelegateCommand(
                 (object p) =>
                 {
+                    var dialog = EditorManager.CreateSaveFileDialog();
+                    var path= dialog.ShowFileDialog("Test", "Canvas File(*.canvas)|*.canvas;");
 
+                    if (!string.IsNullOrEmpty(path))
+                    {
+                        var control = TabItems[SelectTabIndex].AssetControl;
+                        if (control != null)
+                        {
+                            //HACK : Does \\ always enter the pass? 
+                            var directory = new DirectoryInfo(path.Remove(path.LastIndexOf('\\')));
+                            Debug.Assert(directory != null);
+            
+                            control.Target.SetDirectory(directory);
+
+                            if (control.Target.Save())
+                            {
+                                control.Target.Rename(Path.GetFileNameWithoutExtension(path));
+                                TabItems[SelectTabIndex].Header = control.Target.DisplayName;
+                            }
+                        }
+                    }
                 }
                 ,
                 (object p) =>
@@ -125,7 +147,7 @@ namespace McEditor.Windows
                 ,
                 (object p) =>
                 {
-                    return false;
+                    return true;
                 }
             );
 

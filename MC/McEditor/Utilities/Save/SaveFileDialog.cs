@@ -34,7 +34,7 @@ namespace McEditor.Utilities
             }
             else
             {
-                sfd.InitialDirectory = @"C:\";
+                sfd.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
             }
 
             sfd.Filter = filter;
