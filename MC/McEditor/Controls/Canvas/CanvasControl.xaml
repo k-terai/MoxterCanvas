@@ -42,6 +42,17 @@
         StrokeThickness="{Binding StrokeThickness}"/>
         </DataTemplate>
 
+        <DataTemplate DataType="{x:Type canvas:RichText}">
+            <RichTextBox Width="{Binding Width}" IsReadOnly="{Binding IsReadOnly}" Height="{Binding Height}" Background="{Binding Background}">
+                <FlowDocument>
+                    <Paragraph>
+                        <Run Text="{Binding Text}" Foreground="{Binding Foreground}"/>
+                    </Paragraph>
+                </FlowDocument>
+            </RichTextBox>
+        </DataTemplate>
+
+
         <DataTemplate DataType="{x:Type canvas:RadixIconImage}">
             <iconPacks:PackIconRadixIcons Kind="{Binding Path,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" Foreground="#FFFFF500" Width="{Binding Width}" Height="{Binding Height}" />
         </DataTemplate>

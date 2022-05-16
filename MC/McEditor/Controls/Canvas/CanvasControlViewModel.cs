@@ -134,6 +134,17 @@ namespace McEditor.Controls
 
                     Elements.Add(path);
                 }
+
+                {
+                    var text = new RichText();
+                    text.Width = 100;
+                    text.Height = 200;
+                    text.Text = "Update";
+                    text.Foreground = new SolidColorBrush(Colors.Blue);
+                    text.Background = new SolidColorBrush(Colors.Orange);
+                    text.IsReadOnly = true;
+                    Elements.Add(text);
+                }
             });
         }
     }

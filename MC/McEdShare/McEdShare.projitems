@@ -20,6 +20,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)CanvasSystem\Path.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CanvasSystem\RadixIconImage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CanvasSystem\Rectangle.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CanvasSystem\RichText.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ControlSystem\ControlViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ControlSystem\IControl.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ControlSystem\IEditAssetControl.cs" />
