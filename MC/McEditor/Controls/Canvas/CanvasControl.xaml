@@ -52,6 +52,9 @@
             </RichTextBox>
         </DataTemplate>
 
+        <DataTemplate DataType="{x:Type canvas:NormalText}">
+            <TextBlock Width="{Binding Width}" Height="{Binding Height}" Text="{Binding Text}" Background="{Binding Background}" Foreground="{Binding Foreground}"/>
+        </DataTemplate>
 
         <DataTemplate DataType="{x:Type canvas:RadixIconImage}">
             <iconPacks:PackIconRadixIcons Kind="{Binding Path,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" Foreground="#FFFFF500" Width="{Binding Width}" Height="{Binding Height}" />

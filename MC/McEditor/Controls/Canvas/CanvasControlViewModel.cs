@@ -136,12 +136,12 @@ namespace McEditor.Controls
                 }
 
                 {
-                    var text = new RichText();
+                    var text = new NormalText();
                     text.Width = 100;
                     text.Height = 200;
                     text.Text = "Update";
                     text.Foreground = new SolidColorBrush(Colors.Blue);
-                    text.Background = new SolidColorBrush(Colors.Orange);
+                    text.Background = new SolidColorBrush(Colors.Transparent);
                     text.IsReadOnly = true;
                     Elements.Add(text);
                 }
