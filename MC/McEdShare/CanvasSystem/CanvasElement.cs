@@ -26,6 +26,7 @@ namespace McEdShare.CanvasSystem
         public double Width { get => _width; set { _width = value; NotifyPropertyChanged(); } }
 
         public double Height { get => _height; set { _height = value; NotifyPropertyChanged(); } }
+
     }
 
    

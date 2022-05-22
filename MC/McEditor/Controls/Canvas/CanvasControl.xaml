@@ -46,14 +46,14 @@
             <RichTextBox Width="{Binding Width}" IsReadOnly="{Binding IsReadOnly}" Height="{Binding Height}" Background="{Binding Background}">
                 <FlowDocument>
                     <Paragraph>
-                        <Run Text="{Binding Text}" Foreground="{Binding Foreground}"/>
+                        <Run Text="{Binding Text}" Foreground="{Binding Foreground}" FontSize="{Binding FontSize}"/>
                     </Paragraph>
                 </FlowDocument>
             </RichTextBox>
         </DataTemplate>
 
         <DataTemplate DataType="{x:Type canvas:NormalText}">
-            <TextBlock Width="{Binding Width}" Height="{Binding Height}" Text="{Binding Text}" Background="{Binding Background}" Foreground="{Binding Foreground}"/>
+            <TextBlock Width="{Binding Width}" Height="{Binding Height}" Text="{Binding Text}" Background="{Binding Background}" Foreground="{Binding Foreground}"  FontSize="{Binding FontSize}"/>
         </DataTemplate>
 
         <DataTemplate DataType="{x:Type canvas:RadixIconImage}">

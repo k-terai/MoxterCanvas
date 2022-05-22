@@ -26,10 +26,13 @@
     <Compile Include="$(MSBuildThisFileDirectory)ControlSystem\IControl.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ControlSystem\IEditAssetControl.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CoreSystem\DelegateCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CoreSystem\EditorCommon.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CoreSystem\NotifyPropertyChangedBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CoreSystem\SerializableBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CoreSystem\ViewModelBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CanvasSystem\CanvasElement.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)NodeSystem\FunctionNodes.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)NodeSystem\NodeBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Serialization\JsonSerializer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Serialization\SerializeAttribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Serialization\Serializer.cs" />

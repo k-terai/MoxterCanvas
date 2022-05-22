@@ -1,6 +1,7 @@
 ﻿// Copyright (c) 2022 K.T
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
+using McEdShare.CoreSystem;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -18,6 +19,7 @@ namespace McEdShare.CanvasSystem
         private Brush _foreground;
         private Brush _background;
         private bool _isReadOnly;
+        private double _fontSize;
 
         public string Text { get => _text; set { _text = value; NotifyPropertyChanged(); } }
 
@@ -26,6 +28,8 @@ namespace McEdShare.CanvasSystem
         public Brush Background { get => _background; set { _background = value; NotifyPropertyChanged(); } }
 
         public bool IsReadOnly { get => _isReadOnly; set { _isReadOnly = value; NotifyPropertyChanged(); } }
+
+        public double FontSize { get => _fontSize; set { _fontSize = value; NotifyPropertyChanged(); } }
 #endif
 
 
