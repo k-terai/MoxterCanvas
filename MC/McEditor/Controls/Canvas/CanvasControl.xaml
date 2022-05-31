@@ -59,6 +59,29 @@
         <DataTemplate DataType="{x:Type canvas:RadixIconImage}">
             <iconPacks:PackIconRadixIcons Kind="{Binding Path,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" Foreground="#FFFFF500" Width="{Binding Width}" Height="{Binding Height}" />
         </DataTemplate>
+
+        <ContextMenu x:Key="CanvasContextMenu" ItemsSource="{Binding ContextMenus,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}">
+            <ContextMenu.ItemContainerStyle>
+                <Style TargetType="MenuItem" x:Name="MyTest">
+                    <Setter Property="Header" Value="{Binding Name}" />
+                    <Setter Property="MenuItem.Command" Value="{Binding Command}"/>
+                    <Setter Property="MenuItem.CommandParameter" Value="123"/>
+                    <Setter Property="ItemsSource" Value="{Binding Children}" />
+                    <Setter Property="IsEnabled" Value="{Binding IsEnabled}" />
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsSeparator}" Value="True">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate>
+                                        <Separator Style="{StaticResource {x:Static MenuItem.SeparatorStyleKey}}" />
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </ContextMenu.ItemContainerStyle>
+        </ContextMenu>
     </UserControl.Resources>
 
     <Grid Background="{DynamicResource CustomWindowBackground}">
@@ -75,7 +98,7 @@
             </Button>
         </ToolBar>
         <GridSplitter Margin="0,35,0,0" Width="5" Background="{DynamicResource CustomWindowBackground}"/>
-        <ItemsControl ItemsSource="{Binding Elements,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Margin="0,35,5,0">
+        <ItemsControl ItemsSource="{Binding Elements,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Margin="0,35,5,0" ContextMenu="{StaticResource CanvasContextMenu}">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <Canvas Background="{DynamicResource CustomCanvasBackground}" />

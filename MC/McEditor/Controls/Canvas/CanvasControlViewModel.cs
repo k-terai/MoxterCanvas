@@ -14,12 +14,14 @@ using McEdShare.CoreSystem;
 using System.Numerics;
 using McEdShare.AssetSystem;
 using McEdShare.NodeSystem;
+using System.Reflection;
 
 namespace McEditor.Controls
 {
     public class CanvasControlViewModel : ControlViewModel
     {
         private ObservableCollection<CanvasElement> _elements;
+        private ObservableCollection<CanvasContextMenu> _contextMenus;
         private Canvas _targetCanvas;
 
         public ObservableCollection<CanvasElement> Elements { get => _elements; set { _elements = value; NotifyPropertyChanged(); } }
@@ -27,10 +29,17 @@ namespace McEditor.Controls
         public DelegateCommand TestCommand { get; set; }
         public Canvas TargetCanvas { get => _targetCanvas; set { _targetCanvas = value; NotifyPropertyChanged(); } }
 
+        public ObservableCollection<CanvasContextMenu> ContextMenus { get => _contextMenus; set { _contextMenus = value; NotifyPropertyChanged(); } }
+
         public CanvasControlViewModel() : base()
         {
             Elements = new ObservableCollection<CanvasElement>();
+
+            ContextMenus = new ObservableCollection<CanvasContextMenu>();
+
+
             InitCommands();
+            InitContextMenus();
         }
 
         private void InitCommands()
@@ -150,6 +159,59 @@ namespace McEditor.Controls
                 //    Elements.Add(text);
                 //}
             });
+        }
+
+        private void InitContextMenus()
+        {
+            foreach (var nodeClass in AssemblyUtility.GetTypesFromAssemblyMatchAttribute<NodeMenuAttribute>())
+            {
+                var attri = nodeClass.GetCustomAttribute<NodeMenuAttribute>();
+                var pathes = attri?.Path?.Split("/");
+                string parent = string.Empty;
+
+                var length = pathes.Length;
+
+                for (int i = 0; i < length; i++)
+                {
+                    var context = new CanvasContextMenu(pathes[i]);
+
+                    if (i + 1 == length)
+                    {
+                        context.Command = new DelegateCommand(
+                        (object p) =>
+                        {
+                            var instance = AssemblyUtility.CreateInstance<NodeBase>(nodeClass.FullName);
+                            instance.Set(Elements);
+                        },
+                        (object p) =>
+                        {
+                            if (attri.Type == NodeMenuAttribute.NodeType.None)
+                            {
+                                return true;
+                            }
+                            else if (attri.Type.HasFlag(NodeMenuAttribute.NodeType.Unique))
+                            {
+                                return false;
+                            }
+
+                            return false;
+                        });
+                    }
+
+                    var parentContext = ContextMenus.FirstOrDefault(t => t.Name.Equals(parent));
+
+                    if (parentContext != null)
+                    {
+                        parentContext.Children.Add(context);
+                    }
+                    else
+                    {
+                        ContextMenus.Add(context);
+                    }
+
+                    parent = pathes[i];
+                }
+            }
         }
     }
 }
