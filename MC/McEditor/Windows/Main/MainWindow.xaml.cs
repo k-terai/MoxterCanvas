@@ -1,4 +1,8 @@
-﻿using System;
+﻿// Copyright (c) 2022 K.T
+// Licensed under the MIT License. See LICENSE in the project root for license information.
+
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,12 +17,12 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MoxterCanvasEditor
+namespace McEditor.Windows
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : Window,IMainWindow
     {
         public MainWindow()
         {

@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>e1b5588c-f2cf-44fa-a5c3-b862a26ef1f5</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>McEdShare</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)AssetSystem\Asset.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AssetSystem\AssetDatabase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AssetSystem\Canvas.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AssetSystem\Contexts\AssetContext.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AssetSystem\Data\AssetData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AssetSystem\Data\Canvas\CanvasData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CanvasSystem\CanvasContextMenu.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CanvasSystem\Elements\Ellipse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CanvasSystem\Elements\Image.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CanvasSystem\Elements\Path.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CanvasSystem\Elements\RadixIconImage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CanvasSystem\Elements\Rectangle.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CanvasSystem\Elements\RichText.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CanvasSystem\Elements\NormalText.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ControlSystem\ControlViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ControlSystem\IControl.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ControlSystem\IEditAssetControl.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CoreSystem\AssemblyUtility.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CoreSystem\DelegateCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CoreSystem\EditorCommon.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CoreSystem\NotifyPropertyChangedBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CoreSystem\SerializableBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CoreSystem\ViewModelBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CanvasSystem\Elements\CanvasElement.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)NodeSystem\FunctionNodes.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)NodeSystem\NodeBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)NodeSystem\NodeController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)NodeSystem\NodeMenuAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Serialization\JsonSerializer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Serialization\SerializeAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Serialization\Serializer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TabSystem\TabItemViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)WindowSystem\IWindow.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)WindowSystem\WindowViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)CanvasSystem\Elements\" />
+  </ItemGroup>
+</Project>
