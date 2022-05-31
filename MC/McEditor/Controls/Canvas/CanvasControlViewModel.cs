@@ -23,6 +23,7 @@ namespace McEditor.Controls
         private ObservableCollection<CanvasElement> _elements;
         private ObservableCollection<CanvasContextMenu> _contextMenus;
         private Canvas _targetCanvas;
+        private NodeController _controller;
 
         public ObservableCollection<CanvasElement> Elements { get => _elements; set { _elements = value; NotifyPropertyChanged(); } }
 
@@ -33,10 +34,9 @@ namespace McEditor.Controls
 
         public CanvasControlViewModel() : base()
         {
+            _controller = new NodeController();
             Elements = new ObservableCollection<CanvasElement>();
-
             ContextMenus = new ObservableCollection<CanvasContextMenu>();
-
 
             InitCommands();
             InitContextMenus();
@@ -180,7 +180,7 @@ namespace McEditor.Controls
                         context.Command = new DelegateCommand(
                         (object p) =>
                         {
-                            var instance = AssemblyUtility.CreateInstance<NodeBase>(nodeClass.FullName);
+                            var instance = _controller.CreateNode(nodeClass.FullName);
                             instance.Set(Elements);
                         },
                         (object p) =>
@@ -191,7 +191,7 @@ namespace McEditor.Controls
                             }
                             else if (attri.Type.HasFlag(NodeMenuAttribute.NodeType.Unique))
                             {
-                                return false;
+                                return _controller.IsNodeExists(attri.Id) == false;
                             }
 
                             return false;

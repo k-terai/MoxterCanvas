@@ -16,7 +16,7 @@ using System.Windows.Media;
 namespace McEdShare.NodeSystem
 {
     [DataContract]
-    [NodeMenu(NodeType.Unique,"Funtion/Start")]
+    [NodeMenu(NodeType.Unique, "Funtion/Start", "{C6FC1F94-D68B-47D2-B3DB-7BDD3058A8E5}")]
     public sealed class StartNode : NodeBase
     {
         public StartNode() : base()

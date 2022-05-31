@@ -6,6 +6,7 @@ using McEdShare.CoreSystem;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Runtime.Serialization;
 using System.Text;
 
@@ -15,6 +16,7 @@ namespace McEdShare.NodeSystem
     public abstract class NodeBase : SerializableBase
     {
         private ObservableCollection<CanvasElement> _elements;
+        private Guid _id;
 
         [DataMember]
         public double X { get; set; }
@@ -24,9 +26,14 @@ namespace McEdShare.NodeSystem
 
         public ObservableCollection<CanvasElement> Elements { get => _elements; protected set { _elements = value; NotifyPropertyChanged(); } }
 
+        public Guid Id { get => _id;}
 
         public NodeBase()
         {
+            var attribute = GetType().GetCustomAttributes(typeof(NodeMenuAttribute),true)[0] as NodeMenuAttribute;
+            Debug.Assert(attribute != null);
+            
+            _id = attribute.Id;
             X = 0;
             Y = 0;
             Elements = new ObservableCollection<CanvasElement>();
@@ -34,6 +41,11 @@ namespace McEdShare.NodeSystem
 
         public void Set(ObservableCollection<CanvasElement> source)
         {
+            if (source == null)
+            {
+                return;
+            }
+
             foreach (var e in _elements)
             {
                 source.Add(e);

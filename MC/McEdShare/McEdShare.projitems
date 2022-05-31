@@ -35,6 +35,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)CanvasSystem\Elements\CanvasElement.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)NodeSystem\FunctionNodes.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)NodeSystem\NodeBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)NodeSystem\NodeController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)NodeSystem\NodeMenuAttribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Serialization\JsonSerializer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Serialization\SerializeAttribute.cs" />
