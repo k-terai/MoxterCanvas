@@ -31,10 +31,10 @@ namespace McEdShare.NodeSystem
             Y = 0;
             Elements = new ObservableCollection<CanvasElement>();
         }
-     
+
         public void Set(ObservableCollection<CanvasElement> source)
         {
-            foreach(var e in _elements)
+            foreach (var e in _elements)
             {
                 source.Add(e);
             }

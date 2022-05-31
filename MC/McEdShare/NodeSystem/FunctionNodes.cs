@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 using System.Text;
+using static McEdShare.NodeSystem.NodeMenuAttribute;
 
 #if WPF
 using System.Windows.Media;
@@ -15,6 +16,7 @@ using System.Windows.Media;
 namespace McEdShare.NodeSystem
 {
     [DataContract]
+    [NodeMenu(NodeType.Unique,"Funtion/Start")]
     public sealed class StartNode : NodeBase
     {
         public StartNode() : base()
