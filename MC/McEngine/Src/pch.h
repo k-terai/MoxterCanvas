@@ -11,6 +11,7 @@
 #define PCH_H
 
 // プリコンパイルするヘッダーをここに追加します
-#include "framework.h"
+#include "McFramework.h"
+#include"D3D12Manager.h"
 
 #endif //PCH_H

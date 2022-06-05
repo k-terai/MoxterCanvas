@@ -4,6 +4,8 @@
 #include "framework.h"
 #include "StandaloneWindows.h"
 
+using namespace McEngine;
+
 #define MAX_LOADSTRING 100
 
 // グローバル変数:
@@ -26,6 +28,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     UNREFERENCED_PARAMETER(lpCmdLine);
 
     // TODO: ここにコードを挿入してください。
+    McFramework::GetInstance()->Startup();
 
     // グローバル文字列を初期化する
     LoadStringW(hInstance, IDS_APP_TITLE, szTitle, MAX_LOADSTRING);
