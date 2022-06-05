@@ -33,5 +33,17 @@ namespace McEdShare.NodeSystem
         {
             return _nodes.Count(n => n.Id.Equals(id)) != 0;
         }
+
+        public void SetCanvasOffset(double x,double y)
+        {
+            foreach(var n in _nodes)
+            {
+                foreach(var e in n.Elements)
+                {
+                    e.OffsetX += x;
+                    e.OffsetY += y;
+                }
+            }
+        }
     }
 }

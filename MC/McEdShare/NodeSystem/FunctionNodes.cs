@@ -40,8 +40,7 @@ namespace McEdShare.NodeSystem
             header.Stroke = EditorCommon.s_NodeHeaderBrush;
 
             var text = new NormalText();
-            text.X = 150 / 2 - 25;
-            text.Y = 0;
+            text.LocalX = 150 / 2 - 25;
             text.Text = "Start";
             text.Width = 150;
             text.Height = 25;
