@@ -1,4 +1,7 @@
-﻿// pch.cpp: プリコンパイル済みヘッダーに対応するソース ファイル
+﻿// Copyright (c) 2022 K.T
+// Licensed under the MIT License. See LICENSE in the project root for license information.
+
+// pch.cpp: プリコンパイル済みヘッダーに対応するソース ファイル
 
 #include "pch.h"
 
