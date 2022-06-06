@@ -143,11 +143,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Inc\framework.h" />
+    <ClInclude Include="Inc\McFramework.h" />
+    <ClInclude Include="Src\D3D12Manager.h" />
+    <ClInclude Include="Src\PtrDeleter.h" />
+    <ClInclude Include="Src\Macro.h" />
     <ClInclude Include="Src\pch.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Src\McEngine.cpp" />
+    <ClCompile Include="Src\McFramework.cpp" />
+    <ClCompile Include="Src\D3D12Manager.cpp" />
     <ClCompile Include="Src\pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
