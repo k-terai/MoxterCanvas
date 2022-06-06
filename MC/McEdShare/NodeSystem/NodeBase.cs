@@ -24,8 +24,10 @@ namespace McEdShare.NodeSystem
         [DataMember]
         public double Y { get; set; }
 
+        [IgnoreDataMember]
         public ObservableCollection<CanvasElement> Elements { get => _elements; protected set { _elements = value; NotifyPropertyChanged(); } }
 
+        [IgnoreDataMember]
         public Guid Id { get => _id;}
 
         public NodeBase()

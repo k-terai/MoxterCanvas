@@ -30,10 +30,44 @@ namespace McEditor.Controls
 
         public Asset Target => ViewModel.TargetCanvas;
 
+        private Point _previousMousePoint = new Point();
+
         public CanvasControl()
         {
             InitializeComponent();
         }
+
+        private void MainCanvas_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            ViewModel.IsMouseDragMode = true;
+        }
+
+        private void MainCanvas_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            ViewModel.IsMouseDragMode = false;
+            _previousMousePoint = new Point();
+        }
+
+        private void MainCanvas_PreviewMouseMove(object sender, MouseEventArgs e)
+        {
+            if (ViewModel.IsMouseDragMode)
+            {
+                var pos = e.GetPosition(this);
+                double diffX = 0;
+                double diffY = 0;
+
+                // First mouse drag is too moving,so we prevent this.
+                if (_previousMousePoint.X != 0 || _previousMousePoint.Y != 0)
+                {
+                    diffX = pos.X - _previousMousePoint.X;
+                    diffY = pos.Y - _previousMousePoint.Y;
+                }
+
+                ViewModel.Controller.SetCanvasOffset(diffX, diffY);
+                _previousMousePoint = pos;
+            }
+        }
+
 
     }
 }
