@@ -20,12 +20,19 @@ namespace McEditor.Controls
 {
     public class CanvasControlViewModel : ControlViewModel
     {
+        public enum MouseDragMode
+        {
+            None,
+            Canvas,
+            Element
+        }
+
         private ObservableCollection<CanvasElement> _elements;
         private ObservableCollection<CanvasContextMenu> _contextMenus;
         private Canvas _targetCanvas;
         private NodeController _controller;
 
-        private bool _isMouseDragMode;
+        private MouseDragMode _dragMode;
 
         public ObservableCollection<CanvasElement> Elements { get => _elements; set { _elements = value; NotifyPropertyChanged(); } }
 
@@ -34,9 +41,11 @@ namespace McEditor.Controls
 
         public ObservableCollection<CanvasContextMenu> ContextMenus { get => _contextMenus; set { _contextMenus = value; NotifyPropertyChanged(); } }
 
-        public bool IsMouseDragMode { get => _isMouseDragMode; set { _isMouseDragMode = value; NotifyPropertyChanged(); } }
+        public MouseDragMode DragMode { get => _dragMode; set { _dragMode = value; NotifyPropertyChanged(); } }
 
         public NodeController Controller { get => _controller; set { _controller = value; NotifyPropertyChanged(); } }
+
+
 
         public CanvasControlViewModel() : base()
         {

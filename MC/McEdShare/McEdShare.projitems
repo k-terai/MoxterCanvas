@@ -17,6 +17,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)AssetSystem\Data\Canvas\CanvasData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CanvasSystem\CanvasContextMenu.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CanvasSystem\Elements\Ellipse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CanvasSystem\Elements\IElementOwner.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CanvasSystem\Elements\Image.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CanvasSystem\Elements\Path.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CanvasSystem\Elements\RadixIconImage.cs" />
@@ -43,8 +44,5 @@
     <Compile Include="$(MSBuildThisFileDirectory)TabSystem\TabItemViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)WindowSystem\IWindow.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)WindowSystem\WindowViewModel.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="$(MSBuildThisFileDirectory)CanvasSystem\Elements\" />
   </ItemGroup>
 </Project>

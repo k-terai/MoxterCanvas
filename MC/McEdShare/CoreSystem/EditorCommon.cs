@@ -14,9 +14,11 @@ namespace McEdShare.CoreSystem
 {
     public static class EditorCommon
     {
-        public enum ElementTemplate
+        public enum Space
         {
-            Function
+            World,
+            Local,
+            Canvas
         }
 
         public static readonly Brush s_NodeBackgroundBrush = new SolidColorBrush(Color.FromRgb(40,40,40));

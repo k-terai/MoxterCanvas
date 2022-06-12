@@ -28,12 +28,18 @@ namespace McEngine
 	private:
 		DISALLOW_COPY_AND_ASSIGN(D3D12Manager);
 
+		bool InitializeCommands();
+		bool InitializeSwapChain(HWND windowHandle);
+
+
 	private:
 		static D3D12Manager s_instance;
 
 		D3D_FEATURE_LEVEL m_featureLevel;
-		std::unique_ptr<ID3D12Device8,Release_Deleter> m_device;
+		std::unique_ptr<ID3D12Device8, Release_Deleter> m_device;
 		std::unique_ptr<IDXGIFactory7, Release_Deleter> m_factory;
+		std::unique_ptr<ID3D12CommandAllocator, Release_Deleter> m_allocator;
+		std::unique_ptr<ID3D12GraphicsCommandList6, Release_Deleter> m_commandList;
 		std::unique_ptr<IDXGISwapChain4, Release_Deleter> m_swapChain;
 	};
 }

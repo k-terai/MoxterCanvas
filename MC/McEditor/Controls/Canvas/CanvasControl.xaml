@@ -21,7 +21,10 @@
         Height="{Binding Height}"
         Fill="{Binding Fill}"
         Stroke="{Binding Stroke}"
-        StrokeThickness="{Binding StrokeThickness}"/>
+        StrokeThickness="{Binding StrokeThickness}"
+        PreviewMouseLeftButtonDown="Rectangle_PreviewMouseLeftButtonDown"
+        PreviewMouseMove="Rectangle_PreviewMouseMove"
+        PreviewMouseUp="Rectangle_PreviewMouseUp"/>
         </DataTemplate>
 
         <DataTemplate DataType="{x:Type canvas:Ellipse}">
@@ -106,8 +109,8 @@
             </ItemsControl.ItemsPanel>
             <ItemsControl.ItemContainerStyle>
                 <Style>
-                    <Setter Property="Canvas.Left" Value="{Binding X,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" />
-                    <Setter Property="Canvas.Top" Value="{Binding Y,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" />
+                    <Setter Property="Canvas.Left" Value="{Binding X,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" />
+                    <Setter Property="Canvas.Top" Value="{Binding Y,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" />
                 </Style>
             </ItemsControl.ItemContainerStyle>
         </ItemsControl>

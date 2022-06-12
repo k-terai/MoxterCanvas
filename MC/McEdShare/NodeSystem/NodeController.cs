@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using static McEdShare.CoreSystem.EditorCommon;
 
 namespace McEdShare.NodeSystem
 {
@@ -34,15 +35,11 @@ namespace McEdShare.NodeSystem
             return _nodes.Count(n => n.Id.Equals(id)) != 0;
         }
 
-        public void SetCanvasOffset(double x,double y)
+        public void TranslateNodes(double x, double y, Space space)
         {
-            foreach(var n in _nodes)
+            foreach (var n in _nodes)
             {
-                foreach(var e in n.Elements)
-                {
-                    e.OffsetX += x;
-                    e.OffsetY += y;
-                }
+                n.Translate(x, y, space);
             }
         }
     }
