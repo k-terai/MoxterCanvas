@@ -14,7 +14,7 @@ using System.Text;
 namespace McEdShare.NodeSystem
 {
     [DataContract]
-    public abstract class NodeBase : SerializableBase, IElementOwner
+    public abstract record NodeBase : SerializableBase, IElementOwner
     {
         private ObservableCollection<CanvasElement> _elements;
         private Guid _id;
@@ -26,7 +26,7 @@ namespace McEdShare.NodeSystem
         public double Y { get; set; }
 
         [IgnoreDataMember]
-        public ObservableCollection<CanvasElement> Elements { get => _elements; protected set { _elements = value; NotifyPropertyChanged(); } }
+        public ObservableCollection<CanvasElement> Elements { get => _elements; protected set { _elements = value;  } }
 
         [IgnoreDataMember]
         public Guid Id { get => _id; }

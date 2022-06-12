@@ -17,7 +17,7 @@ namespace McEdShare.NodeSystem
 {
     [DataContract]
     [NodeMenu(NodeType.None, "Funtion/Start", "{C6FC1F94-D68B-47D2-B3DB-7BDD3058A8E5}")]
-    public sealed class StartNode : NodeBase
+    public sealed record StartNode : NodeBase
     {
         public StartNode() : base()
         {

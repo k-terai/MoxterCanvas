@@ -7,7 +7,7 @@ using System.Text;
 
 namespace McEdShare.AssetSystem
 {
-    public sealed class CanvasData : AssetData
+    public sealed record CanvasData : AssetData
     {
 
     }
