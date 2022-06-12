@@ -2,6 +2,8 @@
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
 using McEdShare.AssetSystem;
+using McEdShare.CanvasSystem;
+using McEdShare.CoreSystem;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,35 +41,78 @@ namespace McEditor.Controls
 
         private void MainCanvas_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            ViewModel.IsMouseDragMode = true;
+            if (ViewModel.DragMode != CanvasControlViewModel.MouseDragMode.None)
+            {
+                return;
+            }
+
+            ViewModel.DragMode = CanvasControlViewModel.MouseDragMode.Canvas;
         }
 
         private void MainCanvas_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            ViewModel.IsMouseDragMode = false;
+            ViewModel.DragMode = CanvasControlViewModel.MouseDragMode.None;
             _previousMousePoint = new Point();
         }
 
         private void MainCanvas_PreviewMouseMove(object sender, MouseEventArgs e)
         {
-            if (ViewModel.IsMouseDragMode)
+            if (ViewModel.DragMode != CanvasControlViewModel.MouseDragMode.Canvas)
             {
-                var pos = e.GetPosition(this);
-                double diffX = 0;
-                double diffY = 0;
-
-                // First mouse drag is too moving,so we prevent this.
-                if (_previousMousePoint.X != 0 || _previousMousePoint.Y != 0)
-                {
-                    diffX = pos.X - _previousMousePoint.X;
-                    diffY = pos.Y - _previousMousePoint.Y;
-                }
-
-                ViewModel.Controller.SetCanvasOffset(diffX, diffY);
-                _previousMousePoint = pos;
+                return;
             }
+
+            var pos = e.GetPosition(this);
+            double diffX = 0;
+            double diffY = 0;
+
+            // First mouse drag is too moving,so we prevent this.
+            if (_previousMousePoint.X != 0 || _previousMousePoint.Y != 0)
+            {
+                diffX = pos.X - _previousMousePoint.X;
+                diffY = pos.Y - _previousMousePoint.Y;
+            }
+
+            ViewModel.Controller.TranslateNodes(diffX, diffY, EditorCommon.Space.Canvas);
+            _previousMousePoint = pos;
         }
 
+        private void Rectangle_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            ViewModel.DragMode = CanvasControlViewModel.MouseDragMode.Element;
+        }
 
+        private void Rectangle_PreviewMouseMove(object sender, MouseEventArgs e)
+        {
+            if (ViewModel.DragMode != CanvasControlViewModel.MouseDragMode.Element)
+            {
+                return;
+            }
+
+            var pos = e.GetPosition(this);
+            double diffX = 0;
+            double diffY = 0;
+
+            // First mouse drag is too moving,so we prevent this.
+            if (_previousMousePoint.X != 0 || _previousMousePoint.Y != 0)
+            {
+                diffX = pos.X - _previousMousePoint.X;
+                diffY = pos.Y - _previousMousePoint.Y;
+            }
+
+
+            if (sender is Shape shape && shape.DataContext is CanvasElement element)
+            {
+                element.Owner.Translate(diffX, diffY, EditorCommon.Space.World);
+            }
+
+            _previousMousePoint = pos;
+        }
+
+        private void Rectangle_PreviewMouseUp(object sender, MouseButtonEventArgs e)
+        {
+            ViewModel.DragMode = CanvasControlViewModel.MouseDragMode.None;
+            _previousMousePoint = new Point();
+        }
     }
 }

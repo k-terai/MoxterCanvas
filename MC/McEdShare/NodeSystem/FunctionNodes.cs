@@ -16,14 +16,14 @@ using System.Windows.Media;
 namespace McEdShare.NodeSystem
 {
     [DataContract]
-    [NodeMenu(NodeType.Unique, "Funtion/Start", "{C6FC1F94-D68B-47D2-B3DB-7BDD3058A8E5}")]
+    [NodeMenu(NodeType.None, "Funtion/Start", "{C6FC1F94-D68B-47D2-B3DB-7BDD3058A8E5}")]
     public sealed class StartNode : NodeBase
     {
         public StartNode() : base()
         {
             var rectangle = new Rectangle();
-            rectangle.X = 0;
-            rectangle.Y = 0;
+            rectangle.WorldX = 0;
+            rectangle.WorldY = 0;
             rectangle.Width = 150;
             rectangle.Height = 100;
             rectangle.Fill = EditorCommon.s_NodeBackgroundBrush;
@@ -31,8 +31,8 @@ namespace McEdShare.NodeSystem
             rectangle.Stroke = EditorCommon.s_NodeHeaderBrush;
 
             var header = new Rectangle();
-            header.X = 0;
-            header.Y = 0;
+            header.WorldX = 0;
+            header.WorldY = 0;
             header.Width = 150;
             header.Height = 25;
             header.Fill = EditorCommon.s_NodeHeaderBrush;
@@ -51,6 +51,7 @@ namespace McEdShare.NodeSystem
             Elements.Add(header);
             Elements.Add(text);
 
+            SetOwner();
         }
     }
 }
