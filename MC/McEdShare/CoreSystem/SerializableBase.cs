@@ -9,7 +9,7 @@ using System.Text;
 namespace McEdShare.CoreSystem
 {
     [DataContract]
-    public abstract record SerializableBase
+    public abstract class SerializableBase
     {
         /// <summary>
         /// Data serialize version.

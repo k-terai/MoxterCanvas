@@ -10,7 +10,7 @@
         xmlns:service="clr-namespace:McEditor.Service"
         xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen" WindowState="Maximized" MinWidth="800" MinHeight="450">
+        Title="MainWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen" WindowState="Maximized" MinWidth="800" MinHeight="450" Closing="Window_Closing">
 
     <Window.DataContext>
         <local:MainWindowViewModel/>

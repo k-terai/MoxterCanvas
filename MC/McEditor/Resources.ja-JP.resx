@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Create" xml:space="preserve">
+    <value>作成</value>
+  </data>
   <data name="Debug" xml:space="preserve">
     <value>デバッグ(_D)</value>
   </data>
@@ -135,11 +138,20 @@
   <data name="Language" xml:space="preserve">
     <value>言語</value>
   </data>
+  <data name="Location" xml:space="preserve">
+    <value>保存場所</value>
+  </data>
   <data name="NewCanvas" xml:space="preserve">
     <value>新規キャンバス...</value>
   </data>
   <data name="OpenCanvas" xml:space="preserve">
     <value>キャンパスを開く...</value>
+  </data>
+  <data name="OpenProject" xml:space="preserve">
+    <value>プロジェクトを開く...</value>
+  </data>
+  <data name="ProjectName" xml:space="preserve">
+    <value>プロジェクト名</value>
   </data>
   <data name="Property" xml:space="preserve">
     <value>プロパティ</value>
@@ -152,6 +164,12 @@
   </data>
   <data name="SaveAs" xml:space="preserve">
     <value>別名で保存</value>
+  </data>
+  <data name="SelectLocation" xml:space="preserve">
+    <value>保存場所を選択</value>
+  </data>
+  <data name="Template" xml:space="preserve">
+    <value>テンプレート</value>
   </data>
   <data name="Window" xml:space="preserve">
     <value>ウィンドウ(_W)</value>

@@ -11,7 +11,7 @@ namespace McEdShare.ProjectSystem
 {
     [DataContract]
     [Serialization.Serialize(Serialization.SerializeAttribute.SerializeType.Json)]
-    public sealed record ProjectData : SerializableBase
+    public sealed class ProjectData : SerializableBase
     {
         /// <summary>
         /// Project unique id.

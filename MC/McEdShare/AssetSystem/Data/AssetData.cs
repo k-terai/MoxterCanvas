@@ -12,7 +12,7 @@ namespace McEdShare.AssetSystem
 {
     [DataContract]
     [Serialize(SerializeAttribute.SerializeType.Json)]
-    public abstract record AssetData : SerializableBase
+    public abstract class AssetData : SerializableBase
     {
 
         /// <summary>

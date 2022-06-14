@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Create" xml:space="preserve">
+    <value>Create</value>
+  </data>
   <data name="Debug" xml:space="preserve">
     <value>Debug(_D)</value>
   </data>
@@ -135,11 +138,20 @@
   <data name="Language" xml:space="preserve">
     <value>Language</value>
   </data>
+  <data name="Location" xml:space="preserve">
+    <value>Location</value>
+  </data>
   <data name="NewCanvas" xml:space="preserve">
     <value>NewCanvas...</value>
   </data>
   <data name="OpenCanvas" xml:space="preserve">
     <value>OpenCanvas...</value>
+  </data>
+  <data name="OpenProject" xml:space="preserve">
+    <value>Open Project...</value>
+  </data>
+  <data name="ProjectName" xml:space="preserve">
+    <value>Project Name</value>
   </data>
   <data name="Property" xml:space="preserve">
     <value>Property</value>
@@ -152,6 +164,12 @@
   </data>
   <data name="SaveAs" xml:space="preserve">
     <value>Save As...</value>
+  </data>
+  <data name="SelectLocation" xml:space="preserve">
+    <value>Select Location</value>
+  </data>
+  <data name="Template" xml:space="preserve">
+    <value>Template</value>
   </data>
   <data name="Window" xml:space="preserve">
     <value>Window(_W)</value>

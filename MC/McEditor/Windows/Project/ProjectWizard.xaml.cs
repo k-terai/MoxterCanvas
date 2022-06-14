@@ -1,7 +1,6 @@
 ﻿// Copyright (c) 2022 K.T
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,29 +13,23 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace McEditor.Windows
+namespace McEditor.Windows.Project
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// ProjectWizard.xaml の相互作用ロジック
     /// </summary>
-    public partial class MainWindow : Window,IMainWindow
+    public partial class ProjectWizard : Window,IProjectWizard
     {
-        public MainWindow()
+        public ProjectWizard()
         {
             InitializeComponent();
         }
 
-        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        public void ShowWindow()
         {
-            if (EditorManager.Shutdown())
-            {
-                return;
-            }
-
-            e.Cancel = true;
+            ShowDialog();
         }
     }
 }

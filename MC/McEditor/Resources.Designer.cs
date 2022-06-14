@@ -61,6 +61,15 @@ namespace McEditor {
         }
         
         /// <summary>
+        ///   Create に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string Create {
+            get {
+                return ResourceManager.GetString("Create", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Debug(_D) に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string Debug {
@@ -115,6 +124,15 @@ namespace McEditor {
         }
         
         /// <summary>
+        ///   Location に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string Location {
+            get {
+                return ResourceManager.GetString("Location", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   NewCanvas... に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string NewCanvas {
@@ -129,6 +147,24 @@ namespace McEditor {
         public static string OpenCanvas {
             get {
                 return ResourceManager.GetString("OpenCanvas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Open Project... に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string OpenProject {
+            get {
+                return ResourceManager.GetString("OpenProject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Project Name に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string ProjectName {
+            get {
+                return ResourceManager.GetString("ProjectName", resourceCulture);
             }
         }
         
@@ -165,6 +201,24 @@ namespace McEditor {
         public static string SaveAs {
             get {
                 return ResourceManager.GetString("SaveAs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Select Location に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string SelectLocation {
+            get {
+                return ResourceManager.GetString("SelectLocation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Template に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string Template {
+            get {
+                return ResourceManager.GetString("Template", resourceCulture);
             }
         }
         
