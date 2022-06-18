@@ -11,10 +11,11 @@
 
 #include<memory>
 
+#include"Platform.h"
 #include"Macro.h"
 #include"PtrDeleter.h"
 
-namespace McEngine
+namespace D3D12Renderer
 {
 	class D3D12Manager
 	{
@@ -29,7 +30,7 @@ namespace McEngine
 		DISALLOW_COPY_AND_ASSIGN(D3D12Manager);
 
 		bool InitializeCommands();
-		bool InitializeSwapChain(HWND windowHandle);
+		bool InitializeSwapChain(McEnCore::whandle windowHandle);
 
 
 	private:

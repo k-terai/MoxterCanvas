@@ -3,21 +3,34 @@
 
 #include "pch.h"
 #include "McFramework.h"
-
-#include"D3D12Manager.h"
+#include"LibRendererModule.h"
 
 using namespace std;
+using namespace McEnCore;
 using namespace McEngine;
 
 McFramework McFramework::s_instance;
 
 bool McEngine::McFramework::Startup()
 {
-    D3D12Manager::GetInstance()->Initialize();
-    return true;
+	//NOTE: Lib reference.
+	m_renderer = D3D12Renderer::LibRenderer::GetInstance();
+
+	InitialModuleContext context;
+	m_renderer->Startup(context);
+
+	return true;
+}
+
+bool McEngine::McFramework::Initialize()
+{
+	return true;
 }
 
 bool McEngine::McFramework::Shutdown()
 {
-    return true;
+	m_renderer->Shutdown();
+
+	m_renderer = nullptr;
+	return true;
 }

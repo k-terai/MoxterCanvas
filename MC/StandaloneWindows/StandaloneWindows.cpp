@@ -29,6 +29,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
     // TODO: ここにコードを挿入してください。
     McFramework::GetInstance()->Startup();
+    McFramework::GetInstance()->Initialize();
 
     // グローバル文字列を初期化する
     LoadStringW(hInstance, IDS_APP_TITLE, szTitle, MAX_LOADSTRING);
@@ -55,6 +56,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
         }
     }
 
+    McFramework::GetInstance()->Shutdown();
     return (int) msg.wParam;
 }
 
