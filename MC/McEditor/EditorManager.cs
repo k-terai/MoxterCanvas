@@ -82,5 +82,10 @@ namespace McEditor
         {
             return new ProjectWizard();
         }
+
+        public static IStartControl CreateStartControl()
+        {
+            return new StartControl();
+        }
     }
 }

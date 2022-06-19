@@ -16,29 +16,18 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace McEditor.Windows
+namespace McEditor.Controls
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// StartControl.xaml の相互作用ロジック
     /// </summary>
-    public partial class MainWindow : Window, IMainWindow
+    public partial class StartControl : UserControl,IStartControl
     {
-        public MainWindowViewModel ViewModel => DataContext as MainWindowViewModel;
+        public UserControl Control => this;
 
-        public MainWindow()
+        public StartControl()
         {
             InitializeComponent();
-            ViewModel.CreateStartControlCommand.Execute(null);
-        }
-
-        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            if (EditorManager.Shutdown())
-            {
-                return;
-            }
-
-            e.Cancel = true;
         }
     }
 }

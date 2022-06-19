@@ -17,19 +17,12 @@
     </Window.DataContext>
 
     <Grid Background="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}">
-        <TabControl Style="{DynamicResource CustomTabControlStyle}" Background="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}" 
-                    BorderBrush="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"
+        <TabControl  
                     ItemsSource="{Binding TabItems,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"
-                    SelectedIndex="{Binding SelectTabIndex,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
-            <TabControl.ItemContainerStyle>
-                <Style TargetType="TabItem" BasedOn="{StaticResource CustomTabItemStyle}">
-
-                </Style>
-            </TabControl.ItemContainerStyle>
-
+                    SelectedIndex="{Binding SelectTabIndex,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Foreground="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}">
             <TabControl.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock Text="{Binding Header,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" Foreground="{DynamicResource MainForeground}" />
+                    <TextBlock Text="{Binding Header,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" Foreground="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}" />
                 </DataTemplate>
             </TabControl.ItemTemplate>
 

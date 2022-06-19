@@ -1,7 +1,6 @@
 ﻿// Copyright (c) 2022 K.T
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
-
 using McEditor.Controls;
 using McEditor.Dispatcher;
 using McEditor.Service;
@@ -27,6 +26,8 @@ namespace McEditor.Windows
         private int _selectTabIndex;
 
         public DelegateCommand ChangeLanguageCommand { get; set; }
+
+        public DelegateCommand CreateStartControlCommand { get; set; }
 
         public DelegateCommand CreateNewCanvasCommand { get; set; }
 
@@ -101,7 +102,7 @@ namespace McEditor.Windows
                 (object p) =>
                 {
                     var dialog = EditorManager.CreateSaveFileDialog();
-                    var path= dialog.ShowFileDialog("Test", "Canvas File(*.canvas)|*.canvas;");
+                    var path = dialog.ShowFileDialog("Test", "Canvas File(*.canvas)|*.canvas;");
 
                     if (!string.IsNullOrEmpty(path))
                     {
@@ -111,7 +112,7 @@ namespace McEditor.Windows
                             //HACK : Does \\ always enter the pass? 
                             var directory = new DirectoryInfo(path.Remove(path.LastIndexOf('\\')));
                             Debug.Assert(directory != null);
-            
+
                             control.Target.SetDirectory(directory);
 
                             if (control.Target.Save())
@@ -125,12 +126,12 @@ namespace McEditor.Windows
                 ,
                 (object p) =>
                 {
-                    if(SelectTabIndex < 0)
+                    if (SelectTabIndex < 0)
                     {
                         return false;
                     }
 
-                    if(TabItems[SelectTabIndex].ContentControl is IEditAssetControl control && control.Target != null && control.Target.IsDirty)
+                    if (TabItems[SelectTabIndex].ContentControl is IEditAssetControl control && control.Target != null && control.Target.IsDirty)
                     {
                         return true;
                     }
@@ -161,7 +162,28 @@ namespace McEditor.Windows
              {
                  return false;
              }
-         );
+            );
+
+            CreateStartControlCommand = new DelegateCommand(
+           (object p) =>
+           {
+               var control = EditorManager.CreateStartControl();
+
+               var tab = new TabItemViewModel()
+               {
+                   Header = "Start",
+                   ContentControl = control
+               };
+
+               TabItems.Add(tab);
+               SelectTabIndex = TabItems.Count - 1;
+           }
+           ,
+           (object p) =>
+           {
+               return true;
+           }
+          );
         }
     }
 }
