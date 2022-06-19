@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Inc\LibRendererModule.h">
+    <ClInclude Include="Inc\RendererModule.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="Src\pch.h">
@@ -32,7 +32,7 @@
     <ClCompile Include="Src\D3D12Manager.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Src\LibRendererModule.cpp">
+    <ClCompile Include="Src\RendererModule.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>

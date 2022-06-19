@@ -3,7 +3,7 @@
 
 #include "pch.h"
 #include "McFramework.h"
-#include"LibRendererModule.h"
+#include "RendererModule.h"
 
 using namespace std;
 using namespace McEnCore;
@@ -14,7 +14,7 @@ McFramework McFramework::s_instance;
 bool McEngine::McFramework::Startup()
 {
 	//NOTE: Lib reference.
-	m_renderer = D3D12Renderer::LibRenderer::GetInstance();
+	m_renderer = D3D12Renderer::RendererModule::GetInstance();
 
 	InitialModuleContext context;
 	m_renderer->Startup(context);

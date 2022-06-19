@@ -2,14 +2,14 @@
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
 #pragma once
-#include"ILibModule.h"
+#include"Module/IModule.h"
 
 namespace McEnCore
 {
-	class ILibRenderer : public ILibModule
+	class IRendererModule : public IModule
 	{
 	public:
-		virtual ~ILibRenderer() {}
+		virtual ~IRendererModule() {}
 
 	};
 }

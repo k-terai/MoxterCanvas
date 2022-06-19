@@ -7,10 +7,10 @@
 
 namespace McEnCore
 {
-	class ILibModule
+	class IModule
 	{
 	public:
-		virtual ~ILibModule() {}
+		virtual ~IModule() {}
 		
 		virtual bool Startup(InitialModuleContext context) = 0;
 		virtual void Shutdown() = 0;

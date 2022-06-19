@@ -143,12 +143,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Inc\LibRendererModule.h" />
+    <ClInclude Include="Inc\RendererModule.h" />
     <ClInclude Include="Src\D3D12Manager.h" />
     <ClInclude Include="Src\pch.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Src\LibRendererModule.cpp" />
+    <ClCompile Include="Src\RendererModule.cpp" />
     <ClCompile Include="Src\D3D12Manager.cpp" />
     <ClCompile Include="Src\pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

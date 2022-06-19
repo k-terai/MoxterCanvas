@@ -27,13 +27,13 @@
     <ClInclude Include="Inc\PtrDeleter.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Inc\ILibRenderer.h">
+    <ClInclude Include="Inc\Module\IRendererModule.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Inc\ILibModule.h">
+    <ClInclude Include="Inc\Module\IModule.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Inc\ModuleContexts.h">
+    <ClInclude Include="Inc\Module\ModuleContexts.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="Inc\Platform.h">

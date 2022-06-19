@@ -5,7 +5,7 @@
 
 #define WIN32_LEAN_AND_MEAN             // Windows ヘッダーからほとんど使用されていない部分を除外する
 
-#include"ILibRenderer.h"
+#include"Module/IRendererModule.h"
 
 namespace McEngine 
 {
@@ -21,6 +21,6 @@ namespace McEngine
 	private:
 		static McFramework s_instance;
 
-		McEnCore::ILibRenderer* m_renderer;
+		McEnCore::IRendererModule* m_renderer;
 	};
 }
