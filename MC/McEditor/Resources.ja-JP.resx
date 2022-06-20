@@ -144,6 +144,9 @@
   <data name="NewCanvas" xml:space="preserve">
     <value>新規キャンバス...</value>
   </data>
+  <data name="NewProject" xml:space="preserve">
+    <value>新規プロジェクト...</value>
+  </data>
   <data name="OpenCanvas" xml:space="preserve">
     <value>キャンパスを開く...</value>
   </data>

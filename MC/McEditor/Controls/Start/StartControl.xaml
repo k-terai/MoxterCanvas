@@ -13,7 +13,12 @@
     <UserControl.DataContext>
         <local:StartControlViewModel/>
     </UserControl.DataContext>
-    
+
+    <UserControl.InputBindings>
+        <KeyBinding Command="{x:Static command:EditorCommand.OpenProjectWizardCommand}" Gesture="Ctrl+Shift+N" />
+        <KeyBinding Command="{x:Static command:EditorCommand.OpenProjectCommand}" Gesture="Ctrl+Shift+O" />
+    </UserControl.InputBindings>
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -21,7 +26,8 @@
         </Grid.ColumnDefinitions>
         <Menu Height="22" VerticalAlignment="Top" d:LayoutOverrides="VerticalAlignment, Height" Grid.ColumnSpan="2">
             <MenuItem Header="{Binding Source={x:Static service:ResourceService.Current}, Path=Resources.File, Mode=OneWay}" Height="22" Width="60">
-                <MenuItem Header="{Binding Source={x:Static service:ResourceService.Current}, Path=Resources.OpenProject, Mode=OneWay}" Command="{x:Static command:EditorCommand.OpenProjectCommand}"/>
+                <MenuItem Header="{Binding Resources.NewProject, Mode=OneWay, Source={x:Static service:ResourceService.Current}}" InputGestureText="Ctrl+Shift+N" Command="{x:Static command:EditorCommand.OpenProjectWizardCommand}"/>
+                <MenuItem Header="{Binding Resources.OpenProject, Mode=OneWay, Source={x:Static service:ResourceService.Current}}" InputGestureText="Ctrl+Shift+O" Command="{x:Static command:EditorCommand.OpenProjectCommand}"/>
             </MenuItem>
             <MenuItem Header="{Binding Source={x:Static service:ResourceService.Current}, Path=Resources.Help, Mode=OneWay}" Height="22" Width="60"/>
         </Menu>

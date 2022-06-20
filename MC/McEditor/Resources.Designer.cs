@@ -142,6 +142,15 @@ namespace McEditor {
         }
         
         /// <summary>
+        ///   New Project... に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string NewProject {
+            get {
+                return ResourceManager.GetString("NewProject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   OpenCanvas... に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string OpenCanvas {

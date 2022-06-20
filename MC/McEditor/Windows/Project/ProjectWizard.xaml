@@ -25,7 +25,7 @@
             </MenuItem>
             <MenuItem Header="{Binding Source={x:Static service:ResourceService.Current}, Path=Resources.Help, Mode=OneWay}" Height="22" Width="60"/>
         </Menu>
-        <GroupBox Header="{Binding Source={x:Static service:ResourceService.Current}, Path=Resources.Template, Mode=OneWay}" Margin="0,27,0,225"/>
+        <GroupBox Header="{Binding Source={x:Static service:ResourceService.Current}, Path=Resources.Template, Mode=OneWay}" Margin="10,27,10,225" BorderBrush="{DynamicResource {x:Static SystemColors.WindowFrameBrushKey}}"/>
         <Label Content="{Binding Source={x:Static service:ResourceService.Current}, Path=Resources.Location, Mode=OneWay}" Margin="10,364,710,0" Height="25" VerticalAlignment="Top"/>
         <TextBox Margin="10,394,195,0" TextWrapping="Wrap" Text="{Binding ProjectViewModel.Location,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" Height="22" d:LayoutOverrides="HorizontalAlignment, Height" VerticalAlignment="Top"/>
         <Label Content="{Binding Resources.ProjectName, Mode=OneWay, Source={x:Static service:ResourceService.Current}}" Margin="10,449,710,0" Height="25" VerticalAlignment="Top"/>
