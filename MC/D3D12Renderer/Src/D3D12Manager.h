@@ -22,16 +22,21 @@ namespace D3D12Renderer
 	public:
 		D3D12Manager();
 		~D3D12Manager();
-		bool Initialize();
+		bool Initialize(const McEnCore::whandle handle);
 
 		static inline D3D12Manager* const GetInstance() { return &s_instance; }
 
 	private:
 		DISALLOW_COPY_AND_ASSIGN(D3D12Manager);
 
+		bool InitializeFactory();
 		bool InitializeCommands();
 		bool InitializeSwapChain(McEnCore::whandle windowHandle);
+		bool InitializeRenderTargetView();
+		bool InitializeFence();
 
+		bool EnableDebugLayer();
+		bool TestClearRenderTarget();
 
 	private:
 		static D3D12Manager s_instance;
@@ -41,6 +46,12 @@ namespace D3D12Renderer
 		std::unique_ptr<IDXGIFactory7, Release_Deleter> m_factory;
 		std::unique_ptr<ID3D12CommandAllocator, Release_Deleter> m_allocator;
 		std::unique_ptr<ID3D12GraphicsCommandList6, Release_Deleter> m_commandList;
+		std::unique_ptr<ID3D12CommandQueue, Release_Deleter> m_commandQueue;
 		std::unique_ptr<IDXGISwapChain4, Release_Deleter> m_swapChain;
+		std::unique_ptr<ID3D12DescriptorHeap, Release_Deleter> m_rtvHeap;
+		std::unique_ptr<ID3D12Fence1, Release_Deleter> m_fence;
+		std::vector<ID3D12Resource2*> m_backBuffers;
+
+		McEnCore::uint64 m_febceValue;
 	};
 }

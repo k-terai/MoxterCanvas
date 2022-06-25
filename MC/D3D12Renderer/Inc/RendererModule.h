@@ -15,9 +15,9 @@ namespace D3D12Renderer
 	public:
 		virtual ~RendererModule() {}
 
-		virtual bool Startup(McEnCore::InitialModuleContext context) override;
+		virtual bool Startup(McEnCore::InitialModuleContext* const context) override;
 		virtual void Shutdown() override;
-		virtual bool Initialize(McEnCore::InitialModuleContext context) override;
+		virtual bool Initialize(McEnCore::InitialModuleContext* const context) override;
 
 		static inline RendererModule* const GetInstance() { return &s_instance; }
 

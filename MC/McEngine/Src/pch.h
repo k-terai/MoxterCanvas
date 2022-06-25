@@ -10,6 +10,8 @@
 #ifndef PCH_H
 #define PCH_H
 
+#include<assert.h>
+
 // プリコンパイルするヘッダーをここに追加します
 #include "McFramework.h"
 

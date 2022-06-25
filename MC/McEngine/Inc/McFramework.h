@@ -6,6 +6,7 @@
 #define WIN32_LEAN_AND_MEAN             // Windows ヘッダーからほとんど使用されていない部分を除外する
 
 #include"Module/IRendererModule.h"
+#include"Module/ModuleContexts.h"
 
 namespace McEngine 
 {
@@ -13,7 +14,7 @@ namespace McEngine
 	{
 	public:
 		bool Startup();
-		bool Initialize();
+		bool Initialize(McEnCore::Framework_InitialModuleContext context);
 		bool Shutdown();
 
 		static inline McFramework* const GetInstance() { return &s_instance; }

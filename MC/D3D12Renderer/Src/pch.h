@@ -8,5 +8,7 @@
 #define PCH_H
 
 // プリコンパイルするヘッダーをここに追加します
+#include<vector>
+#include"Platform.h"
 
 #endif //PCH_H

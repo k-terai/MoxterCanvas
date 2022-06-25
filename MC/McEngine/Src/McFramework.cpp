@@ -17,13 +17,16 @@ bool McEngine::McFramework::Startup()
 	m_renderer = D3D12Renderer::RendererModule::GetInstance();
 
 	InitialModuleContext context;
-	m_renderer->Startup(context);
+	m_renderer->Startup(&context);
 
 	return true;
 }
 
-bool McEngine::McFramework::Initialize()
+bool McEngine::McFramework::Initialize(Framework_InitialModuleContext context)
 {
+	auto isSuccess = m_renderer->Initialize(&context.RendererContext);
+	assert(isSuccess);
+	
 	return true;
 }
 

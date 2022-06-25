@@ -11,7 +11,7 @@ using namespace McEnCore;
 
 RendererModule RendererModule::s_instance;
 
-bool D3D12Renderer::RendererModule::Startup(McEnCore::InitialModuleContext context)
+bool D3D12Renderer::RendererModule::Startup(McEnCore::InitialModuleContext* const context)
 {
 	return true;
 }
@@ -21,8 +21,9 @@ void D3D12Renderer::RendererModule::Shutdown()
 
 }
 
-bool D3D12Renderer::RendererModule::Initialize(McEnCore::InitialModuleContext context)
+bool D3D12Renderer::RendererModule::Initialize(McEnCore::InitialModuleContext* const context)
 {
-	D3D12Manager::GetInstance()->Initialize();
+	auto c = reinterpret_cast<Renderer_InitialModuleContext*>(context);
+	D3D12Manager::GetInstance()->Initialize(c->Handle);
 	return true;
 }
