@@ -29,6 +29,14 @@
                 <MenuItem Header="{Binding Resources.NewProject, Mode=OneWay, Source={x:Static service:ResourceService.Current}}" InputGestureText="Ctrl+Shift+N" Command="{x:Static command:EditorCommand.OpenProjectWizardCommand}"/>
                 <MenuItem Header="{Binding Resources.OpenProject, Mode=OneWay, Source={x:Static service:ResourceService.Current}}" InputGestureText="Ctrl+Shift+O" Command="{x:Static command:EditorCommand.OpenProjectCommand}"/>
             </MenuItem>
+            <MenuItem Header="{Binding Source={x:Static service:ResourceService.Current}, Path=Resources.Developer, Mode=OneWay}"  Height="22" Width="70">
+                <MenuItem Header="{Binding Source={x:Static service:ResourceService.Current}, Path=Resources.Language, Mode=OneWay}">
+                    <MenuItem Header="日本語" Command="{Binding ChangeLanguageCommand,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"
+                               CommandParameter="{x:Static service:ResourceService.JAPANACECODE}"/>
+                    <MenuItem Header="English" Command="{Binding ChangeLanguageCommand,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"
+                               CommandParameter="{x:Static service:ResourceService.ENGLISHCODE}"/>
+                </MenuItem>
+            </MenuItem>
             <MenuItem Header="{Binding Source={x:Static service:ResourceService.Current}, Path=Resources.Help, Mode=OneWay}" Height="22" Width="60"/>
         </Menu>
         <GridSplitter Margin="0,22,0,0" Width="5"/>
