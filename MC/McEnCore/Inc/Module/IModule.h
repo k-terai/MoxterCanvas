@@ -12,9 +12,9 @@ namespace McEnCore
 	public:
 		virtual ~IModule() {}
 		
-		virtual bool Startup(InitialModuleContext context) = 0;
+		virtual bool Startup(InitialModuleContext* const context) = 0;
 		virtual void Shutdown() = 0;
 
-		virtual bool Initialize(InitialModuleContext context) = 0;
+		virtual bool Initialize(InitialModuleContext* const context) = 0;
 	};
 }
