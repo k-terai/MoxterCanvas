@@ -13,8 +13,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)AssetSystem\AssetDatabase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AssetSystem\Canvas.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AssetSystem\Contexts\AssetContext.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)AssetSystem\Data\AssetData.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)AssetSystem\Data\Canvas\CanvasData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AssetSystem\Data\AssetMetaData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AssetSystem\Folders\NormalFolder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AssetSystem\Folders\Root\RootFolder.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CanvasSystem\CanvasContextMenu.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CanvasSystem\Elements\Ellipse.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CanvasSystem\Elements\IElementOwner.cs" />
@@ -47,6 +48,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Serialization\SerializeAttribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Serialization\Serializer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TabSystem\TabItemViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TreeSystem\Assets\AssetTreeComponent.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TreeSystem\TreeComponent.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)WindowSystem\IWindow.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)WindowSystem\WindowViewModel.cs" />
   </ItemGroup>

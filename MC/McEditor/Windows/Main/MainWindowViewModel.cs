@@ -80,8 +80,8 @@ namespace McEditor.Windows
                 TabItems.Add(tab);
                 SelectTabIndex = TabItems.Count - 1;
 
-                var context = new AssetContext("NewCanvas");
-                control.ViewModel.TargetCanvas = AssetDatabase.CreateAsset<Canvas>(context);
+                //var context = new AssetContext("NewCanvas");
+                //control.ViewModel.TargetCanvas = AssetDatabase.CreateAsset<Canvas>(context);
 
                 ////NOTE : It is not reflected in the UI(Tab focus), execute it with Dispatcher.
                 //EditorDispatcher.Execute(() =>
@@ -101,27 +101,27 @@ namespace McEditor.Windows
             SaveCommand = new DelegateCommand(
                 (object p) =>
                 {
-                    var dialog = EditorManager.CreateSaveFileDialog();
-                    var path = dialog.ShowFileDialog("Test", "Canvas File(*.canvas)|*.canvas;");
+                    //var dialog = EditorManager.CreateSaveFileDialog();
+                    //var path = dialog.ShowFileDialog("Test", "Canvas File(*.canvas)|*.canvas;");
 
-                    if (!string.IsNullOrEmpty(path))
-                    {
-                        var control = TabItems[SelectTabIndex].AssetControl;
-                        if (control != null)
-                        {
-                            //HACK : Does \\ always enter the pass? 
-                            var directory = new DirectoryInfo(path.Remove(path.LastIndexOf('\\')));
-                            Debug.Assert(directory != null);
+                    //if (!string.IsNullOrEmpty(path))
+                    //{
+                    //    var control = TabItems[SelectTabIndex].AssetControl;
+                    //    if (control != null)
+                    //    {
+                    //        //HACK : Does \\ always enter the pass? 
+                    //        var directory = new DirectoryInfo(path.Remove(path.LastIndexOf('\\')));
+                    //        Debug.Assert(directory != null);
 
-                            control.Target.SetDirectory(directory);
+                    //        control.Target.SetDirectory(directory);
 
-                            if (control.Target.Save())
-                            {
-                                control.Target.Rename(Path.GetFileNameWithoutExtension(path));
-                                TabItems[SelectTabIndex].Header = control.Target.DisplayName;
-                            }
-                        }
-                    }
+                    //        if (control.Target.Save())
+                    //        {
+                    //            control.Target.Rename(Path.GetFileNameWithoutExtension(path));
+                    //            TabItems[SelectTabIndex].Header = control.Target.DisplayName;
+                    //        }
+                    //    }
+                    //}
                 }
                 ,
                 (object p) =>
