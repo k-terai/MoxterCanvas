@@ -11,5 +11,7 @@
 #define PCH_H
 
 // プリコンパイルするヘッダーをここに追加します
+#include"Platform.h"
+#include"EngineCommon.h"
 
 #endif //PCH_H

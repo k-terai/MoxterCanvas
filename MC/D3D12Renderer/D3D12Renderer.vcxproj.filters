@@ -24,6 +24,9 @@
     <ClInclude Include="Src\D3D12Manager.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
+    <ClInclude Include="Src\ShaderCompiler.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Src\pch.cpp">
@@ -35,5 +38,12 @@
     <ClCompile Include="Src\RendererModule.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="Src\ShaderCompiler.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="Shader\BasicVertexShader.hlsl" />
+    <FxCompile Include="Shader\BasicPixelShader.hlsl" />
   </ItemGroup>
 </Project>

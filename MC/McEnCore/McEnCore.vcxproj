@@ -143,6 +143,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Inc\EngineCommon.h" />
     <ClInclude Include="Inc\Math\SimpleMath.h" />
     <ClInclude Include="Inc\Module\IModule.h" />
     <ClInclude Include="Inc\Module\IRendererModule.h" />

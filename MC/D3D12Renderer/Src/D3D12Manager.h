@@ -37,6 +37,7 @@ namespace D3D12Renderer
 
 		bool EnableDebugLayer();
 		bool TestClearRenderTarget();
+		bool TestVertexCreate();
 
 	private:
 		static D3D12Manager s_instance;
@@ -51,6 +52,7 @@ namespace D3D12Renderer
 		std::unique_ptr<ID3D12DescriptorHeap, Release_Deleter> m_rtvHeap;
 		std::unique_ptr<ID3D12Fence1, Release_Deleter> m_fence;
 		std::vector<ID3D12Resource2*> m_backBuffers;
+		std::unique_ptr<ID3D12Resource2, Release_Deleter> m_vertex;
 
 		McEnCore::uint64 m_febceValue;
 	};

@@ -28,6 +28,8 @@
             <MenuItem Header="{Binding Source={x:Static service:ResourceService.Current}, Path=Resources.File, Mode=OneWay}" Height="22" Width="60">
                 <MenuItem Header="{Binding Resources.NewProject, Mode=OneWay, Source={x:Static service:ResourceService.Current}}" InputGestureText="Ctrl+Shift+N" Command="{x:Static command:EditorCommand.OpenProjectWizardCommand}"/>
                 <MenuItem Header="{Binding Resources.OpenProject, Mode=OneWay, Source={x:Static service:ResourceService.Current}}" InputGestureText="Ctrl+Shift+O" Command="{x:Static command:EditorCommand.OpenProjectCommand}"/>
+                <Separator/>
+                <MenuItem Header="{Binding Resources.NewCanvas, Mode=OneWay, Source={x:Static service:ResourceService.Current}}" Command="{x:Static command:EditorCommand.OpenProjectCommand}"/>
             </MenuItem>
             <MenuItem Header="{Binding Source={x:Static service:ResourceService.Current}, Path=Resources.Developer, Mode=OneWay}"  Height="22" Width="70">
                 <MenuItem Header="{Binding Source={x:Static service:ResourceService.Current}, Path=Resources.Language, Mode=OneWay}">

@@ -3,10 +3,12 @@
 
 #include "pch.h"
 #include "D3D12Manager.h"
+#include"Math/SimpleMath.h"
 
 using namespace std;
 using namespace D3D12Renderer;
 using namespace McEnCore;
+using namespace DirectX::SimpleMath;
 
 D3D12Manager D3D12Manager::s_instance;
 
@@ -83,6 +85,7 @@ bool D3D12Renderer::D3D12Manager::Initialize(const McEnCore::whandle handle)
 
 
 	TestClearRenderTarget();
+	TestVertexCreate();
 	return true;
 }
 
@@ -260,7 +263,7 @@ bool D3D12Renderer::D3D12Manager::TestClearRenderTarget()
 	auto bbIndex = m_swapChain->GetCurrentBackBufferIndex();
 	auto rtvHeap = m_rtvHeap->GetCPUDescriptorHandleForHeapStart();
 	rtvHeap.ptr += bbIndex * m_device->GetDescriptorHandleIncrementSize(D3D12_DESCRIPTOR_HEAP_TYPE_RTV);
-	
+
 	D3D12_RESOURCE_BARRIER bd;
 	SecureZeroMemory(&bd, sizeof(D3D12_RESOURCE_BARRIER));
 	bd.Type = D3D12_RESOURCE_BARRIER_TYPE_TRANSITION;
@@ -270,7 +273,7 @@ bool D3D12Renderer::D3D12Manager::TestClearRenderTarget()
 	bd.Transition.StateAfter = D3D12_RESOURCE_STATE_RENDER_TARGET;
 	bd.Transition.Subresource = 0;
 	m_commandList->ResourceBarrier(1, &bd);
-	
+
 	m_commandList->OMSetRenderTargets(1, &rtvHeap, true, nullptr);
 	float clearColor[] = { 0.25f,0.2f,0.25f,0 };
 	m_commandList->ClearRenderTargetView(rtvHeap, clearColor, 0, nullptr);
@@ -285,7 +288,7 @@ bool D3D12Renderer::D3D12Manager::TestClearRenderTarget()
 	m_commandQueue->ExecuteCommandLists(1, cmdLists);
 
 	m_commandQueue->Signal(m_fence.get(), ++m_febceValue);
-	if (m_fence->GetCompletedValue() != m_febceValue) 
+	if (m_fence->GetCompletedValue() != m_febceValue)
 	{
 		auto event = CreateEvent(nullptr, false, false, nullptr);
 		m_fence->SetEventOnCompletion(m_febceValue, event);
@@ -296,6 +299,54 @@ bool D3D12Renderer::D3D12Manager::TestClearRenderTarget()
 	m_allocator->Reset();
 	m_commandList->Reset(m_allocator.get(), nullptr);
 	m_swapChain->Present(1, 0);
+
+	return true;
+}
+
+bool D3D12Renderer::D3D12Manager::TestVertexCreate()
+{
+	Vector3 vertices[] =
+	{
+		{-1.0f,-1.0f,0.0f},
+		{-1.0f,1.0f,0.0f},
+		{1.0f,-1.0f,0.0f}
+	};
+
+	D3D12_HEAP_PROPERTIES hp;
+	SecureZeroMemory(&hp, sizeof(D3D12_HEAP_PROPERTIES));
+	hp.Type = D3D12_HEAP_TYPE_UPLOAD;
+	hp.CPUPageProperty = D3D12_CPU_PAGE_PROPERTY_UNKNOWN;
+	hp.MemoryPoolPreference = D3D12_MEMORY_POOL_UNKNOWN;
+
+	D3D12_RESOURCE_DESC rs;
+	SecureZeroMemory(&rs, sizeof(D3D12_RESOURCE_DESC));
+	rs.Dimension = D3D12_RESOURCE_DIMENSION_BUFFER;
+	rs.Width = sizeof(vertices); //vertex size.
+	rs.Height = 1;
+	rs.DepthOrArraySize = 1;
+	rs.MipLevels = 1;
+	rs.Format = DXGI_FORMAT_UNKNOWN;
+	rs.SampleDesc.Count = 1;
+	rs.Flags = D3D12_RESOURCE_FLAG_NONE;
+	rs.Layout = D3D12_TEXTURE_LAYOUT_ROW_MAJOR;
+
+	ID3D12Resource2* vb = nullptr;
+	auto result = m_device->CreateCommittedResource(&hp, D3D12_HEAP_FLAG_NONE, &rs,
+		D3D12_RESOURCE_STATE_GENERIC_READ, nullptr, IID_PPV_ARGS(&vb));
+
+	if (result != S_OK)
+	{
+		return false;
+	}
+	m_vertex.reset(vb);
+
+
+	Vector3* vertMap = nullptr;
+	result = m_vertex->Map(0, nullptr, (void**)&vertMap);
+	std::copy(std::begin(vertices), std::end(vertices), vertMap);
+	m_vertex->Unmap(0, nullptr);
+
+
 
 	return true;
 }

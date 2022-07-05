@@ -12,13 +12,14 @@ namespace McEditor.Commands
 {
     public static partial class EditorCommand
     {
-        public static Dictionary<string, DelegateCommand> AllCommands { get; private set; } = new Dictionary<string, DelegateCommand>();
+        public static DelegateCommand CreateNewCanvasCommand { get; set; }
 
-        public static void Initialize()
+        public static void InitAssetCommands()
         {
-            InitCommonCommands();
-            InitProjectCommands();
-            InitAssetCommands();
+            CreateNewCanvasCommand = new DelegateCommand((object p) =>
+            {
+                
+            });
         }
     }
 }
