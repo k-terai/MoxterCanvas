@@ -5,7 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:McEditor.Windows.Main"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="{Binding Title,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" 
+        Height="{Binding Height,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" 
+        Width="{Binding Width,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+        MinHeight="{Binding MinHeight,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+        MinWidth="{Binding MinWidth,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Background="{DynamicResource CustomWindowBackground}">
+
+    <Window.DataContext>
+        <local:MainWindowViewModel/>
+    </Window.DataContext>
+
     <Grid>
 
     </Grid>
