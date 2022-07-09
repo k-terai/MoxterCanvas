@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:McEditor.Windows.Main"
+        xmlns:service="clr-namespace:McEditor.Service"
         mc:Ignorable="d"
         Title="{Binding Title,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" 
         Height="{Binding Height,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" 
@@ -15,7 +16,10 @@
         <local:MainWindowViewModel/>
     </Window.DataContext>
 
-    <Grid>
+    <Grid Background="{DynamicResource CustomWindowBackground}">
+        <Menu Height="22" VerticalAlignment="Top" d:LayoutOverrides="Height" Foreground="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}">
+            <MenuItem Header="{Binding Source={x:Static service:ResourceService.Current}, Path=Resources.File, Mode=OneWay}" Height="22" Width="60" Foreground="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}"/>
+        </Menu>
 
     </Grid>
 </Window>
