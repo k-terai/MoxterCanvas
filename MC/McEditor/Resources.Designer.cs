@@ -68,5 +68,23 @@ namespace McEditor {
                 return ResourceManager.GetString("File", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   New Canvas... に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string NewCanvas {
+            get {
+                return ResourceManager.GetString("NewCanvas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Open Canvas... に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string OpenCanvas {
+            get {
+                return ResourceManager.GetString("OpenCanvas", resourceCulture);
+            }
+        }
     }
 }

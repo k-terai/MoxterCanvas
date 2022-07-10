@@ -4,22 +4,45 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:McEditor.Windows.Main"
-        xmlns:service="clr-namespace:McEditor.Service"
+        xmlns:service="clr-namespace:McEditor.Service" xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
         mc:Ignorable="d"
         Title="{Binding Title,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" 
         Height="{Binding Height,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" 
         Width="{Binding Width,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
         MinHeight="{Binding MinHeight,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
-        MinWidth="{Binding MinWidth,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Background="{DynamicResource CustomWindowBackground}">
+        MinWidth="{Binding MinWidth,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Background="{DynamicResource CustomWindowBackground}" WindowState="Maximized">
 
     <Window.DataContext>
         <local:MainWindowViewModel/>
     </Window.DataContext>
 
     <Grid Background="{DynamicResource CustomWindowBackground}">
-        <Menu Height="22" VerticalAlignment="Top" d:LayoutOverrides="Height" Foreground="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}">
-            <MenuItem Header="{Binding Source={x:Static service:ResourceService.Current}, Path=Resources.File, Mode=OneWay}" Height="22" Width="60" Foreground="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="7*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+        <Menu Height="22" VerticalAlignment="Top" d:LayoutOverrides="Height, LeftMargin, RightMargin, TopMargin, BottomMargin" Foreground="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}" Grid.ColumnSpan="2">
+            <MenuItem Header="{Binding Source={x:Static service:ResourceService.Current}, Path=Resources.File, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Height="22" Width="60" Foreground="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}">
+                <MenuItem Header="{Binding Source={x:Static service:ResourceService.Current}, Path=Resources.NewCanvas, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+                <MenuItem Header="{Binding Source={x:Static service:ResourceService.Current}, Path=Resources.OpenCanvas, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+            </MenuItem>
         </Menu>
-
+        <ToolBar Style="{DynamicResource CustomToolBarStyle}" Height="50" Margin="0,22,0,0" d:LayoutOverrides="HorizontalAlignment, LeftMargin, RightMargin, TopMargin, BottomMargin" VerticalAlignment="Top" Background="{DynamicResource CustomWindowBackground}" Grid.ColumnSpan="2">
+            <Button Foreground="White" Width="45" Height="45" Background="{DynamicResource CustomButtonBackground}">
+                <StackPanel Orientation="Vertical" Width="35">
+                    <iconPacks:PackIconModern Kind="Save" Width="20" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{DynamicResource CustomPackIconModernForeground}"/>
+                    <TextBlock Text="Save" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+            <Button Foreground="White" Width="45" Height="45" Background="{DynamicResource CustomButtonBackground}" Margin="3,0,0,0">
+                <StackPanel Orientation="Vertical" Width="35">
+                    <iconPacks:PackIconZondicons Kind="Play" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{DynamicResource CustomPackIconModernForeground}" Width="20" Height="20" />
+                    <TextBlock Text="Play" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+        </ToolBar>
+        <StatusBar Height="22" VerticalAlignment="Bottom" Background="#FFFF0707" Grid.ColumnSpan="2" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin"/>
+        <GridSplitter Margin="0,72,0,22" Width="5" d:LayoutOverrides="VerticalAlignment"/>
+        <TextBlock Grid.Column="1" Margin="0,72,0,0" TextWrapping="Wrap" Text="TextBlock" Foreground="{DynamicResource {x:Static SystemColors.WindowBrushKey}}" Height="22" d:LayoutOverrides="Height" VerticalAlignment="Top" HorizontalAlignment="Left"/>
     </Grid>
 </Window>

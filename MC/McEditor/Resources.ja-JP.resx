@@ -120,4 +120,10 @@
   <data name="File" xml:space="preserve">
     <value>ファイル(_F)</value>
   </data>
+  <data name="NewCanvas" xml:space="preserve">
+    <value>新規キャンパスを作成...</value>
+  </data>
+  <data name="OpenCanvas" xml:space="preserve">
+    <value>既存キャンパスを開く...</value>
+  </data>
 </root>
