@@ -51,6 +51,7 @@
             </Setter.Value>
         </Setter>
     </Style>
+    <SolidColorBrush x:Key="CustomCanvasBackground" Color="#FF383838"/>
     <Style x:Key="ToolBarHorizontalOverflowButtonStyle" TargetType="{x:Type ToggleButton}">
         <Setter Property="Background" Value="{StaticResource ToolBarToggleButtonHorizontalBackground}"/>
         <Setter Property="MinHeight" Value="0"/>

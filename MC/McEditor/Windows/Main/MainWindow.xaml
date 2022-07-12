@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:McEditor.Windows.Main"
-        xmlns:service="clr-namespace:McEditor.Service" xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        xmlns:service="clr-namespace:McEditor.Service" xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks" xmlns:forms="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
         mc:Ignorable="d"
         Title="{Binding Title,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" 
         Height="{Binding Height,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" 
@@ -41,8 +41,12 @@
                 </StackPanel>
             </Button>
         </ToolBar>
-        <StatusBar Height="22" VerticalAlignment="Bottom" Background="#FFFF0707" Grid.ColumnSpan="2" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin"/>
-        <GridSplitter Margin="0,72,0,22" Width="5" d:LayoutOverrides="VerticalAlignment"/>
+        <StatusBar Height="22" VerticalAlignment="Bottom" Background="{DynamicResource CustomWindowBackground}" Grid.ColumnSpan="2" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin"/>
+        <GridSplitter Margin="0,72,0,22" Width="5" d:LayoutOverrides="VerticalAlignment" Background="{DynamicResource CustomWindowBackground}"/>
         <TextBlock Grid.Column="1" Margin="0,72,0,0" TextWrapping="Wrap" Text="TextBlock" Foreground="{DynamicResource {x:Static SystemColors.WindowBrushKey}}" Height="22" d:LayoutOverrides="Height" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <Canvas Grid.Column="1" Margin="0,94,0,0" Background="{DynamicResource CustomCanvasBackground}"/>
+        <WindowsFormsHost d:LayoutOverrides="HorizontalAlignment, VerticalAlignment" Margin="0,72,6,0">
+            <forms:Form TopLevel="False" FormBorderStyle="None" TopMost="False" BackColor="red"/>
+        </WindowsFormsHost>
     </Grid>
 </Window>
