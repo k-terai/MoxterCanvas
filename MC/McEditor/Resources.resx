@@ -126,4 +126,10 @@
   <data name="OpenCanvas" xml:space="preserve">
     <value>Open Canvas...</value>
   </data>
+  <data name="ToggleToolbar" xml:space="preserve">
+    <value>Toggle Toolbar</value>
+  </data>
+  <data name="View" xml:space="preserve">
+    <value>View(_V)</value>
+  </data>
 </root>

@@ -86,5 +86,23 @@ namespace McEditor {
                 return ResourceManager.GetString("OpenCanvas", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Toggle Toolbar に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string ToggleToolbar {
+            get {
+                return ResourceManager.GetString("ToggleToolbar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   View(_V) に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string View {
+            get {
+                return ResourceManager.GetString("View", resourceCulture);
+            }
+        }
     }
 }

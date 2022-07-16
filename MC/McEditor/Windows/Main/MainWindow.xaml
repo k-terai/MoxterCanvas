@@ -4,7 +4,11 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:McEditor.Windows.Main"
-        xmlns:service="clr-namespace:McEditor.Service" xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks" xmlns:forms="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
+        xmlns:editor="clr-namespace:McEditor"
+        xmlns:service="clr-namespace:McEditor.Service" 
+        xmlns:sys="clr-namespace:System;assembly=System.Runtime"
+        xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        xmlns:forms="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
         mc:Ignorable="d"
         Title="{Binding Title,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" 
         Height="{Binding Height,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" 
@@ -16,18 +20,34 @@
         <local:MainWindowViewModel/>
     </Window.DataContext>
 
+    <Window.Resources>
+        <editor:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+        <sys:Boolean x:Key="TRUE">True</sys:Boolean>
+        <sys:Boolean x:Key="FALSE">False</sys:Boolean>
+    </Window.Resources>
+
     <Grid Background="{DynamicResource CustomWindowBackground}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="7*"/>
             <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
-        <Menu Height="22" VerticalAlignment="Top" d:LayoutOverrides="Height, LeftMargin, RightMargin, TopMargin, BottomMargin" Foreground="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}" Grid.ColumnSpan="2">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Menu Height="22" VerticalAlignment="Top"  Grid.Row="0" d:LayoutOverrides="Height, LeftMargin, RightMargin, TopMargin, BottomMargin" Foreground="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}" Grid.ColumnSpan="2">
             <MenuItem Header="{Binding Source={x:Static service:ResourceService.Current}, Path=Resources.File, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Height="22" Width="60" Foreground="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}">
                 <MenuItem Header="{Binding Source={x:Static service:ResourceService.Current}, Path=Resources.NewCanvas, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
                 <MenuItem Header="{Binding Source={x:Static service:ResourceService.Current}, Path=Resources.OpenCanvas, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
             </MenuItem>
+            <MenuItem Header="{Binding Source={x:Static service:ResourceService.Current}, Path=Resources.View, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Height="22" Width="60" Foreground="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}">
+                <MenuItem Header="{Binding Source={x:Static service:ResourceService.Current}, Path=Resources.ToggleToolbar, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"  IsCheckable="True" IsChecked="{Binding EnableToolBar,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+                
+            </MenuItem>
         </Menu>
-        <ToolBar Style="{DynamicResource CustomToolBarStyle}" Height="50" Margin="0,22,0,0" d:LayoutOverrides="HorizontalAlignment, LeftMargin, RightMargin, TopMargin, BottomMargin" VerticalAlignment="Top" Background="{DynamicResource CustomWindowBackground}" Grid.ColumnSpan="2">
+        <ToolBar Style="{DynamicResource CustomToolBarStyle}" Grid.Row="0"  Height="50" Margin="0,22,0,0" d:LayoutOverrides="HorizontalAlignment, LeftMargin, RightMargin, TopMargin, BottomMargin" VerticalAlignment="Top" Background="{DynamicResource CustomWindowBackground}" Grid.ColumnSpan="2" 
+                  Visibility="{Binding EnableToolBar,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged,Converter={StaticResource BoolToVisibilityConverter}}">
             <Button Foreground="White" Width="45" Height="45" Background="{DynamicResource CustomButtonBackground}">
                 <StackPanel Orientation="Vertical" Width="35">
                     <iconPacks:PackIconModern Kind="Save" Width="20" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{DynamicResource CustomPackIconModernForeground}"/>
@@ -41,11 +61,11 @@
                 </StackPanel>
             </Button>
         </ToolBar>
-        <StatusBar Height="22" VerticalAlignment="Bottom" Background="{DynamicResource CustomWindowBackground}" Grid.ColumnSpan="2" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin"/>
-        <GridSplitter Margin="0,72,0,22" Width="5" d:LayoutOverrides="VerticalAlignment" Background="{DynamicResource CustomWindowBackground}"/>
-        <TextBlock Grid.Column="1" Margin="0,72,0,0" TextWrapping="Wrap" Text="TextBlock" Foreground="{DynamicResource {x:Static SystemColors.WindowBrushKey}}" Height="22" d:LayoutOverrides="Height" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-        <Canvas Grid.Column="1" Margin="0,94,0,0" Background="{DynamicResource CustomCanvasBackground}"/>
-        <WindowsFormsHost d:LayoutOverrides="HorizontalAlignment, VerticalAlignment" Margin="0,72,6,0">
+        <StatusBar Height="22" Grid.Row="1" VerticalAlignment="Bottom" Background="{DynamicResource CustomWindowBackground}" Grid.ColumnSpan="2" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin"/>
+        <GridSplitter Margin="0,72,0,22"  Grid.Row="1" Width="5" d:LayoutOverrides="VerticalAlignment" Background="{DynamicResource CustomWindowBackground}"/>
+        <TextBlock Grid.Column="1"  Grid.Row="1" TextWrapping="Wrap" Text="TextBlock" Foreground="{DynamicResource {x:Static SystemColors.WindowBrushKey}}" Height="22" d:LayoutOverrides="Height" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <Canvas Grid.Column="1"  Grid.Row="1" Margin="0,22,0,0" Background="{DynamicResource CustomCanvasBackground}"/>
+        <WindowsFormsHost  Grid.Row="1" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment" Margin="0,0,6,0">
             <forms:Form TopLevel="False" FormBorderStyle="None" TopMost="False" BackColor="red"/>
         </WindowsFormsHost>
     </Grid>

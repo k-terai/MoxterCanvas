@@ -126,4 +126,10 @@
   <data name="OpenCanvas" xml:space="preserve">
     <value>既存キャンパスを開く...</value>
   </data>
+  <data name="ToggleToolbar" xml:space="preserve">
+    <value>ツールバー表示切替</value>
+  </data>
+  <data name="View" xml:space="preserve">
+    <value>表示(_V)</value>
+  </data>
 </root>
