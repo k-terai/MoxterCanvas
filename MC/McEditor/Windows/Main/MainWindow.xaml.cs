@@ -1,6 +1,7 @@
 ﻿// Copyright (c) 2022 K.T
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
+using McEditor.Engine;
 using McEditor.Service;
 using System;
 using System.Collections.Generic;
@@ -27,6 +28,8 @@ namespace McEditor.Windows.Main
         public MainWindow()
         {
             InitializeComponent();
+
+            McEdEngine.LoopTest();
         }
 
         public void ShowWindow()
