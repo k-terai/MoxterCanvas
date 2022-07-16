@@ -1,4 +1,7 @@
-﻿// dllmain.cpp : DLL アプリケーションのエントリ ポイントを定義します。
+﻿// Copyright (c) 2022 K.T
+// Licensed under the MIT License. See LICENSE in the project root for license information.
+// 
+// dllmain.cpp : DLL アプリケーションのエントリ ポイントを定義します。
 #include "pch.h"
 
 BOOL APIENTRY DllMain( HMODULE hModule,
