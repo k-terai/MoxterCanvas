@@ -3,6 +3,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -22,6 +23,12 @@ namespace McEdShare.CoreSystem
         {
             var asm = Assembly.GetExecutingAssembly();
             return asm.CreateInstance(fullName) as T;
+        }
+
+        public static FileInfo GetExeFileInfo()
+        {
+            var assembly = Assembly.GetEntryAssembly();
+            return new FileInfo(assembly.Location);
         }
     }
 }

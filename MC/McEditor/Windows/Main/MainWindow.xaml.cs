@@ -29,7 +29,7 @@ namespace McEditor.Windows.Main
         {
             InitializeComponent();
 
-            McEdEngine.LoopTest();
+            McEdEngine.Startup();
         }
 
         public void ShowWindow()
@@ -41,6 +41,16 @@ namespace McEditor.Windows.Main
 
             Show();
             Focus();
+        }
+
+        /// <summary>
+        /// TODO: Use Microsoft.Xaml.Behaviors.Wpf
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            McEdEngine.Shutdown();
         }
     }
 }

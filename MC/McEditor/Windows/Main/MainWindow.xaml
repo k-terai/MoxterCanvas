@@ -14,7 +14,10 @@
         Height="{Binding Height,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" 
         Width="{Binding Width,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
         MinHeight="{Binding MinHeight,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
-        MinWidth="{Binding MinWidth,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Background="{DynamicResource CustomWindowBackground}" WindowState="Maximized">
+        MinWidth="{Binding MinWidth,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" 
+        Background="{DynamicResource CustomWindowBackground}" 
+        Closing="Window_Closing"
+        WindowState="Maximized">
 
     <Window.DataContext>
         <local:MainWindowViewModel/>
