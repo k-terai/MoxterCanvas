@@ -15,8 +15,8 @@
 
 using namespace McEnCore;
 
-EXTERN_C MCEDENGINE_API bool8 Startup();
+EXTERN_C MCEDENGINE_API bool8 McEdStartup();
 
-EXTERN_C MCEDENGINE_API bool8 Shutdown();
+EXTERN_C MCEDENGINE_API bool8 McEdShutdown();
 
-EXTERN_C MCEDENGINE_API bool8 Initialize();
+EXTERN_C MCEDENGINE_API bool8 McEdInitialize();

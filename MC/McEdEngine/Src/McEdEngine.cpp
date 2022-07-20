@@ -4,17 +4,17 @@
 #include "pch.h"
 #include "McEdEngine.h"
 
-MCEDENGINE_API bool8 Startup()
+MCEDENGINE_API bool8 McEdStartup()
 {
 	return true;
 }
 
-MCEDENGINE_API bool8 Shutdown()
+MCEDENGINE_API bool8 McEdShutdown()
 {
 	return true;
 }
 
-MCEDENGINE_API bool8 Initialize()
+MCEDENGINE_API bool8 McEdInitialize()
 {
 	return true;
 }

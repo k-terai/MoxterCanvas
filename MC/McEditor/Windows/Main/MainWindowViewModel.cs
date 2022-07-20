@@ -15,10 +15,7 @@ namespace McEditor.Windows.Main
     {
         public MainWindowViewModel() : base()
         {
-            //ClosingCommand = new McEdShare.CoreSystem.DelegateCommand((object p) =>
-            //{
-            //    McEdEngine.Shutdown();
-            //});
+         
         }
     }
 }

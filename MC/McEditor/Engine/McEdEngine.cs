@@ -14,9 +14,16 @@ namespace McEditor.Engine
     public static class McEdEngine
     {
         private const string ENGINE_DLL_NAME = "McEdEngine.dll";
+        private static IntPtr s_dllPtr = IntPtr.Zero;
+        private static bool s_isInitialized = false;
 
-        private static IntPtr _dllPtr = IntPtr.Zero;
-        private static bool _isInitialized = false;
+        private delegate bool McEdStartup();
+        private delegate bool McEdShutdown();
+        private delegate bool McEdInitialize();
+
+        private static McEdStartup s_startup = null;
+        private static McEdShutdown s_shutdown = null;
+        private static McEdInitialize s_initialize = null;
 
         public static void LoopTest()
         {
@@ -53,34 +60,57 @@ namespace McEditor.Engine
                 }
 
                 engineDllPath = dllFile.FullName;
-                _dllPtr = LoadLibrary(engineDllPath);
+                s_dllPtr = NativeMethods.LoadLibrary(engineDllPath);
                 break;
             }
 
-            if (string.IsNullOrEmpty(engineDllPath) || _dllPtr == IntPtr.Zero)
+            if (string.IsNullOrEmpty(engineDllPath) || s_dllPtr == IntPtr.Zero)
             {
                 return false;
             }
 
+            s_startup = GetNativeDelegate<McEdStartup>();
+            s_shutdown = GetNativeDelegate<McEdShutdown>();
+            s_initialize = GetNativeDelegate<McEdInitialize>();
 
-            return _isInitialized = true;
+            if (s_startup())
+            {
+                s_initialize();
+            }
+
+            return s_isInitialized = true;
         }
 
         public static void Shutdown()
         {
-            if (_isInitialized)
+            if (s_isInitialized)
             {
-                FreeLibrary(_dllPtr);
-                _dllPtr = IntPtr.Zero;
-                _isInitialized = false;
+                s_shutdown();
+
+                NativeMethods.FreeLibrary(s_dllPtr);
+                s_dllPtr = IntPtr.Zero;
+                s_isInitialized = false;
             }
         }
 
-        [DllImport("kernel32.dll")]
-        static extern IntPtr LoadLibrary(string lpFileName);
-        [DllImport("kernel32.dll")]
-        static extern IntPtr GetProcAddress(IntPtr hModule, string lpProcName);
-        [DllImport("kernel32.dll")]
-        static extern bool FreeLibrary(IntPtr hLibModule);
+        private static T GetNativeDelegate<T>()
+            where T : Delegate
+        {
+            Debug.Assert(s_dllPtr != IntPtr.Zero);
+            return (T)Marshal.GetDelegateForFunctionPointer(NativeMethods.GetProcAddress(s_dllPtr, typeof(T).Name), typeof(T));
+        }
+
+        private static class NativeMethods
+        {
+
+            [DllImport("kernel32.dll")]
+            public static extern IntPtr LoadLibrary(string lpFileName);
+
+            [DllImport("kernel32.dll")]
+            public static extern IntPtr GetProcAddress(IntPtr hModule, string lpProcName);
+
+            [DllImport("kernel32.dll")]
+            public static extern bool FreeLibrary(IntPtr hLibModule);
+        }
     }
 }
