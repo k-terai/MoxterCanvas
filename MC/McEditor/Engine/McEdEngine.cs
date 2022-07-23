@@ -20,26 +20,12 @@ namespace McEditor.Engine
         private delegate bool McEdStartup();
         private delegate bool McEdShutdown();
         private delegate bool McEdInitialize();
+        private delegate void McEdUpdate();
 
         private static McEdStartup s_startup = null;
         private static McEdShutdown s_shutdown = null;
         private static McEdInitialize s_initialize = null;
-
-        public static void LoopTest()
-        {
-            int a = 0;
-            var timer = new DispatcherTimer(
-            TimeSpan.FromSeconds(1 / 60),
-            DispatcherPriority.SystemIdle,// Or DispatcherPriority.SystemIdle
-            (s, e) =>
-            {
-                Debug.WriteLine(a);
-                ++a;
-            }, // or something similar
-            Application.Current.Dispatcher);
-
-            timer.Start();
-        }
+        private static McEdUpdate s_update = null;
 
         public static bool Startup()
         {
@@ -72,13 +58,17 @@ namespace McEditor.Engine
             s_startup = GetNativeDelegate<McEdStartup>();
             s_shutdown = GetNativeDelegate<McEdShutdown>();
             s_initialize = GetNativeDelegate<McEdInitialize>();
+            s_update = GetNativeDelegate<McEdUpdate>();
 
             if (s_startup())
             {
                 s_initialize();
             }
 
-            return s_isInitialized = true;
+            s_isInitialized = true;
+            ExecuteEngineLoop();
+
+            return true;
         }
 
         public static void Shutdown()
@@ -91,6 +81,25 @@ namespace McEditor.Engine
                 s_dllPtr = IntPtr.Zero;
                 s_isInitialized = false;
             }
+        }
+
+        private static void ExecuteEngineLoop()
+        {
+            if (s_isInitialized == false)
+            {
+                return;
+            }
+
+            var timer = new DispatcherTimer(
+            TimeSpan.FromSeconds(1 / 60),
+            DispatcherPriority.SystemIdle,// Or DispatcherPriority.SystemIdle
+            (s, e) =>
+            {
+                s_update();
+            }, // or something similar
+            Application.Current.Dispatcher);
+
+            timer.Start();
         }
 
         private static T GetNativeDelegate<T>()

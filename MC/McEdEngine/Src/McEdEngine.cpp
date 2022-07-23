@@ -18,3 +18,8 @@ MCEDENGINE_API bool8 McEdInitialize()
 {
 	return true;
 }
+
+MCEDENGINE_API void McEdUpdate()
+{
+	
+}
