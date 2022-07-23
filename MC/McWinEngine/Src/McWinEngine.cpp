@@ -1,4 +1,7 @@
-﻿// McWinEngine.cpp : スタティック ライブラリ用の関数を定義します。
+﻿// Copyright (c) 2022 K.T
+// Licensed under the MIT License. See LICENSE in the project root for license information.
+// 
+// McWinEngine.cpp : スタティック ライブラリ用の関数を定義します。
 //
 
 #include "pch.h"
