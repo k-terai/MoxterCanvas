@@ -143,11 +143,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Inc\Macro.h" />
     <ClInclude Include="Inc\Math\SimpleMath.h" />
     <ClInclude Include="Inc\Module\IModule.h" />
     <ClInclude Include="Inc\Module\IRendererModule.h" />
     <ClInclude Include="Inc\Module\ModuleContexts.h" />
     <ClInclude Include="Inc\Platform.h" />
+    <ClInclude Include="Inc\PtrDeleter.h" />
     <ClInclude Include="Src\pch.h" />
   </ItemGroup>
   <ItemGroup>
